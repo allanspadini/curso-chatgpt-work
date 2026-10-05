@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Processos Agênticos com ChatGPT Work | Faculdade Infnet</title>
+  <link rel="icon" type="image/png" href="./infnet_logo.png" />
+  
+  <!-- Google Fonts: Outfit & Inter & Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --infnet-dark-blue: #0A345D;
+      --infnet-navy-deep: #061F38;
+      --infnet-navy-card: #0D2B4A;
+      --infnet-navy-border: #1E4976;
+      --infnet-cyan: #1BB5D8;
+      --infnet-cyan-light: #64D9EF;
+      --infnet-green-accent: #7CB342;
+      --infnet-orange: #FF7043;
+      --infnet-purple: #AB47BC;
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--infnet-navy-deep);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(27, 181, 216, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(124, 179, 66, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+      line-height: 1.6;
+    }
+
+    /* Wave Header Banner */
+    .top-wave-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 140px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .top-wave-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 24px 24px 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      background: white;
+      border-radius: 50%;
+      padding: 3px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .brand-text h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-text p {
+      font-size: 0.82rem;
+      color: var(--infnet-cyan-light);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(27, 181, 216, 0.15);
+      border: 1px solid var(--infnet-cyan);
+      color: var(--infnet-cyan-light);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-badge:hover {
+      background: var(--infnet-cyan);
+      color: var(--infnet-navy-deep);
+    }
+
+    /* Main Container */
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px 60px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(10, 52, 93, 0.8) 0%, rgba(6, 31, 56, 0.95) 100%);
+      border: 1px solid var(--infnet-navy-border);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(27, 181, 216, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(124, 179, 66, 0.15);
+      border: 1px solid var(--infnet-green-accent);
+      color: var(--infnet-green-accent);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .hero h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h2 span {
+      background: linear-gradient(135deg, var(--infnet-cyan-light) 0%, var(--infnet-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 860px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(27, 181, 216, 0.15);
+      border: 1px solid rgba(27, 181, 216, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--infnet-cyan);
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .feature-text p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+
+    /* Lessons Section */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .section-header h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-header .tag {
+      background: rgba(124, 179, 66, 0.15);
+      color: var(--infnet-green-accent);
+      border: 1px solid var(--infnet-green-accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Lesson Main Card */
+    .lesson-card {
+      background: linear-gradient(145deg, rgba(13, 43, 74, 0.85) 0%, rgba(6, 31, 56, 0.95) 100%);
+      border: 1px solid var(--infnet-navy-border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .lesson-card:hover {
+      border-color: var(--infnet-cyan);
+      box-shadow: 0 12px 36px rgba(27, 181, 216, 0.15);
+    }
+
+    .lesson-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--infnet-cyan), var(--infnet-green-accent));
+    }
+
+    .lesson-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .lesson-title-group h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lesson-title-group p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 760px;
+    }
+
+    .lesson-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .badge.green {
+      background: rgba(124, 179, 66, 0.15);
+      color: var(--infnet-green-accent);
+      border-color: rgba(124, 179, 66, 0.4);
+    }
+
+    .badge.cyan {
+      background: rgba(27, 181, 216, 0.15);
+      color: var(--infnet-cyan-light);
+      border-color: rgba(27, 181, 216, 0.4);
+    }
+
+    .cta-presentation-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--infnet-cyan) 0%, #0284C7 100%);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(27, 181, 216, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .cta-presentation-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(27, 181, 216, 0.5);
+    }
+
+    .cta-pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: all 0.2s ease;
+    }
+
+    .cta-pdf-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: var(--infnet-cyan-light);
+      transform: translateY(-2px);
+    }
+
+    /* Modules Highlights */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .module-item {
+      background: rgba(6, 31, 56, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .module-item .mod-num {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: var(--infnet-cyan);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .module-item h5 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .module-item p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Upcoming Lessons */
+    .upcoming-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .upcoming-card {
+      background: rgba(13, 43, 74, 0.45);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .upcoming-card:hover {
+      border-color: rgba(27, 181, 216, 0.4);
+      background: rgba(13, 43, 74, 0.6);
+    }
+
+    .upcoming-card h5 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .upcoming-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 32px 24px;
+      text-align: center;
+      background: #041426;
+      margin-top: auto;
+    }
+
+    footer p {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--infnet-cyan-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Wave Graphic -->
+  <div class="top-wave-container">
+    <svg class="top-wave-svg" viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 0H1440V60C1240 85 1020 40 800 65C580 90 320 45 0 75V0Z" fill="#1BB5D8" fill-opacity="0.35"/>
+      <path d="M0 0H1440V40C1280 65 1060 20 840 45C620 70 300 25 0 45V0Z" fill="#64D9EF" fill-opacity="0.55"/>
+    </svg>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="brand-group">
+      <img src="./infnet_logo.png" alt="Instituto Infnet" class="brand-logo" />
+      <div class="brand-text">
+        <h1>Faculdade Infnet</h1>
+        <p>Pós-Graduação EAD • Disciplina [26E4_2]</p>
+      </div>
+    </a>
+    <div class="nav-links">
+      <span class="nav-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        Turma 2026/2
+      </span>
+      <a href="https://github.com/allanspadini/curso-chatgpt-work" target="_blank" class="nav-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
+
+  <!-- Content Container -->
+  <div class="container">
+    
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="hero-badge">Pós-Graduação em Inteligência Artificial & Engenharia de Software</div>
+      <h2>Processos Agênticos com <span>ChatGPT Work</span></h2>
+      <p>
+        Portal acadêmico da disciplina de Processos Agênticos corporativos. Uma jornada prática e teórica de alto nível técnico, transitando da amostragem autorregressiva dos Large Language Models à orquestração de sistemas agênticos orientados a desfechos, contratos de trabalho executáveis, conectores empresariais e esteiras de maturidade com governança.
+      </p>
+
+      <div class="hero-features">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h4>Metodologia R-E-T</h4>
+            <p>Situação-Problema Real ➔ Solução de Engenharia ➔ Teoria Rigorosa.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h4>Outcome-Based Work</h4>
+            <p>Ruptura com o chat pontual: delegação de desfechos auditáveis.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h4>Governança & HITL</h4>
+            <p>Princípio da Reversibilidade e portões de inspeção humana.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section: Aulas do Curso -->
+    <div class="section-header">
+      <h3>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        Módulos & Apresentações Interativas
+      </h3>
+      <span class="tag">Trilha Oficial</span>
+    </div>
+
+    <!-- Aula 01 Card -->
+    <article class="lesson-card">
+      <div class="lesson-top">
+        <div class="lesson-title-group">
+          <h4>
+            Aula 01: Fundamentos de IA, Mudança de Paradigma e Engenharia de Workflows Agênticos
+          </h4>
+          <p>
+            Da teoria probabilística de amostragem autorregressiva à orquestração de agentes corporativos orientados a desfechos, contratos executáveis e governança com portões Human-in-the-Loop.
+          </p>
+        </div>
+        <div class="lesson-badges">
+          <span class="badge green">● Disponível</span>
+          <span class="badge cyan">21 Slides Interativos</span>
+          <span class="badge">PDF Oficial</span>
+          <span class="badge">React + Vite</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="margin: 20px 0 24px; display: flex; flex-wrap: wrap; gap: 12px;">
+        <a href="./aula_01_fundamentos_e_processos_agenticos/" class="cta-presentation-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          Acessar Apresentação de Slides
+        </a>
+        <a href="./aula_01_fundamentos_e_processos_agenticos/aula_01_apresentacao.pdf" download target="_blank" class="cta-pdf-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Baixar Slides em PDF (21 Slides • 5.2 MB)
+        </a>
+      </div>
+
+      <!-- Module Highlights -->
+      <div class="modules-grid">
+        <div class="module-item">
+          <div class="mod-num">MÓDULO 01</div>
+          <h5>Fundamentos & LLMs</h5>
+          <p>A Ilusão da Fluência, amostragem probabilística P(wt|w&lt;t, C) e os 4 Hábitos Duráveis de interação.</p>
+        </div>
+
+        <div class="module-item">
+          <div class="mod-num">MÓDULO 02</div>
+          <h5>Chat vs. Work</h5>
+          <p>A armadilha do turno conversacional, delegação por desfecho e conexão OAuth com sistemas de registro.</p>
+        </div>
+
+        <div class="module-item">
+          <div class="mod-num">MÓDULO 03</div>
+          <h5>Contratos & Workflows</h5>
+          <p>Os 4 Pilares do Contrato Agêntico (Desfecho, Contexto, Restrições e Aceite) e modelagem em 7 etapas.</p>
+        </div>
+
+        <div class="module-item">
+          <div class="mod-num">MÓDULO 04</div>
+          <h5>Governança & Escala</h5>
+          <p>Princípio da Reversibilidade, portões HITL, protocolo de auditoria em 6 camadas e esteira de 4 estágios.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Próximas Aulas Section -->
+    <div class="section-header" style="margin-top: 36px;">
+      <h3>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 14 14"></polyline>
+        </svg>
+        Próximas Aulas da Disciplina
+      </h3>
+      <span class="tag" style="background: rgba(255, 112, 67, 0.15); color: var(--infnet-orange); border-color: var(--infnet-orange);">Em Desenvolvimento</span>
+    </div>
+
+    <div class="upcoming-grid">
+      <div class="upcoming-card">
+        <div>
+          <span class="badge" style="margin-bottom: 10px; display: inline-block;">Aula 02</span>
+          <h5>Arquitetura do ChatGPT Work & Codex</h5>
+          <p>Estrutura interna de execução do agente, sandbox de computação, persistência de estado e isolamento de ambientes corporativos.</p>
+        </div>
+        <span class="badge" style="align-self: flex-start;">Aguardando Lançamento</span>
+      </div>
+
+      <div class="upcoming-card">
+        <div>
+          <span class="badge" style="margin-bottom: 10px; display: inline-block;">Aula 03</span>
+          <h5>Conectores Corporativos & Sistemas de Registro</h5>
+          <p>Integrações OAuth 2.0 seguras com Google Workspace, Microsoft 365, GitHub, Slack e bancos de dados empresariais.</p>
+        </div>
+        <span class="badge" style="align-self: flex-start;">Aguardando Lançamento</span>
+      </div>
+
+      <div class="upcoming-card">
+        <div>
+          <span class="badge" style="margin-bottom: 10px; display: inline-block;">Aula 04</span>
+          <h5>Engenharia de Prompt Corporativo & Delimitação de Contexto</h5>
+          <p>Técnicas cirúrgicas de mitigação de ruído, injeção de parâmetros estruturados e blindagem contra alucinações silenciosas.</p>
+        </div>
+        <span class="badge" style="align-self: flex-start;">Aguardando Lançamento</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      <strong>Processos Agênticos com ChatGPT Work [26E4_2]</strong> • Pós-Graduação EAD
+      <br>
+      © 2026 <a href="https://www.infnet.edu.br" target="_blank">Instituto Infnet</a>. Docente: Prof. Dr. Allan Segovia-Spadini. Todos os direitos reservados.
+    </p>
+  </footer>
+
+</body>
+</html>

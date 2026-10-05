@@ -1,0 +1,28 @@
+{
+  "name": "curso-chatgpt-work",
+  "version": "1.0.0",
+  "description": "Processos Agênticos com ChatGPT Work [26E4_2] - Pós-Graduação EAD Instituto Infnet",
+  "type": "module",
+  "scripts": {
+    "dev:aula01": "cd aula_01_fundamentos_e_processos_agenticos/apresentacao && npm run dev",
+    "build:aula01": "cd aula_01_fundamentos_e_processos_agenticos/apresentacao && npm run build",
+    "build": "node build.js",
+    "preview": "serve dist",
+    "start": "serve dist"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "serve": "^14.2.6"
+  },
+  "keywords": [
+    "chatgpt-work",
+    "agentic-processes",
+    "openai",
+    "infnet",
+    "workflows-agenticos",
+    "codex",
+    "ai-agents"
+  ],
+  "author": "Faculdade Infnet",
+  "license": "MIT"
+}
