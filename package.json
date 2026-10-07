@@ -6,6 +6,8 @@
   "scripts": {
     "dev:aula01": "cd aula_01_fundamentos_e_processos_agenticos/apresentacao && npm run dev",
     "build:aula01": "cd aula_01_fundamentos_e_processos_agenticos/apresentacao && npm run build",
+    "dev:aula02": "cd aula_02_configuracao_agents_md_e_subagentes/apresentacao && npm run dev",
+    "build:aula02": "cd aula_02_configuracao_agents_md_e_subagentes/apresentacao && npm run build",
     "build": "node build.js",
     "preview": "serve dist",
     "start": "serve dist"

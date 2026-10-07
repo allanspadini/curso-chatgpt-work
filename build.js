@@ -25,22 +25,39 @@ const aula01Dist = path.join(aula01Dir, 'dist');
 const destAula01 = path.join(DIST_DIR, 'aula_01_fundamentos_e_processos_agenticos');
 fs.copySync(aula01Dist, destAula01);
 
-const pdfPath = path.join(ROOT_DIR, 'aula_01_fundamentos_e_processos_agenticos', 'aula_01_apresentacao.pdf');
-if (fs.existsSync(pdfPath)) {
-  fs.copySync(pdfPath, path.join(destAula01, 'aula_01_apresentacao.pdf'));
+const pdfPath01 = path.join(ROOT_DIR, 'aula_01_fundamentos_e_processos_agenticos', 'aula_01_apresentacao.pdf');
+if (fs.existsSync(pdfPath01)) {
+  fs.copySync(pdfPath01, path.join(destAula01, 'aula_01_apresentacao.pdf'));
   console.log('✅ PDF da Aula 01 copiado para dist/aula_01_fundamentos_e_processos_agenticos/aula_01_apresentacao.pdf');
 }
 console.log('✅ Apresentação da Aula 01 copiada para dist/aula_01_fundamentos_e_processos_agenticos/');
 
-// 4. Copiar arquivos raiz para dist/
+// 4. Build da Apresentação da Aula 02
+const aula02Dir = path.join(ROOT_DIR, 'aula_02_configuracao_agents_md_e_subagentes', 'apresentacao');
+console.log('📦 Compilando apresentação da Aula 02 (React + Vite)...');
+execSync('npm run build', { cwd: aula02Dir, stdio: 'inherit' });
+
+// 5. Copiar dist da Aula 02 para dist/aula_02_configuracao_agents_md_e_subagentes
+const aula02Dist = path.join(aula02Dir, 'dist');
+const destAula02 = path.join(DIST_DIR, 'aula_02_configuracao_agents_md_e_subagentes');
+fs.copySync(aula02Dist, destAula02);
+
+const pdfPath02 = path.join(ROOT_DIR, 'aula_02_configuracao_agents_md_e_subagentes', 'aula_02_apresentacao.pdf');
+if (fs.existsSync(pdfPath02)) {
+  fs.copySync(pdfPath02, path.join(destAula02, 'aula_02_apresentacao.pdf'));
+  console.log('✅ PDF da Aula 02 copiado para dist/aula_02_configuracao_agents_md_e_subagentes/aula_02_apresentacao.pdf');
+}
+console.log('✅ Apresentação da Aula 02 copiada para dist/aula_02_configuracao_agents_md_e_subagentes/');
+
+// 6. Copiar arquivos raiz para dist/
 fs.copySync(path.join(ROOT_DIR, 'index.html'), path.join(DIST_DIR, 'index.html'));
 if (fs.existsSync(path.join(ROOT_DIR, 'infnet_logo.png'))) {
   fs.copySync(path.join(ROOT_DIR, 'infnet_logo.png'), path.join(DIST_DIR, 'infnet_logo.png'));
 }
 console.log('✅ Página inicial do Portal copiada para dist/index.html');
 
-// 5. Criar arquivo .nojekyll no dist para o GitHub Pages não ignorar pastas com _
+// 7. Criar arquivo .nojekyll no dist para o GitHub Pages não ignorar pastas com _
 fs.writeFileSync(path.join(DIST_DIR, '.nojekyll'), '');
 console.log('✅ Arquivo .nojekyll criado para o GitHub Pages.');
 
-console.log('\n🎉 Build completo finalizado com sucesso! Conteúdo pronto em: dist/');
+console.log('\n🎉 Build completo unificado finalizado com sucesso! Conteúdo pronto em: dist/');
