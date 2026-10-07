@@ -22,21 +22,7 @@
 
 ---
 
-### Slide 2: Apresentação do Docente
-- **Título:** Apresentação do Docente
-- **Subtítulo:** Prof. Dr. Allan Segovia-Spadini • Trajetória Acadêmica e Engenharia Agêntica
-- **Falas do Apresentador:**
-> Para quem está ingressando agora na disciplina, gostaria de ressaltar minha formação e a perspectiva que guia nossas aulas. 
->
-> Sou o Allan Segovia-Spadini, doutor e mestre em Ciências pelo Instituto de Astronomia, Geofísica e Ciências Atmosféricas da Universidade de São Paulo (USP), com período de estágio doutoral na Delft University of Technology (TU Delft), na Holanda. Minha raiz científica foi construída sobre métodos numéricos, processamento digital de sinais e inferência estatística em problemas inversos de alta complexidade dimensional.
->
-> Quando aplicamos essa formação quantitativa à Inteligência Artificial moderna e aos Grandes Modelos de Linguagem, enxergamos a engenharia agêntica não como um exercício especulativo de adivinhação de palavras, mas como um sistema distribuído estocástico que precisa de fronteiras determinísticas, contratos formais, barramentos de contexto limpos e controle estrito de acessos.
->
-> É essa mentalidade de engenharia de software e rigor estatístico que aplicaremos ao longo de todo o curso. Aqui, cada decisão de arquitetura — desde o tamanho em bytes de um arquivo de configuração até a concessão de permissão de escrita em sandbox — é justificada técnica e matematicamente.
-
----
-
-### Slide 3: Roadmap da Aula 2: Trilha Pedagógica
+### Slide 2: Roadmap da Aula 2: Trilha Pedagógica
 - **Título:** Roadmap da Aula 2: Trilha Pedagógica
 - **Subtítulo:** Da Governança de Instruções Hierárquicas à Concorrência de Subagentes Especializados
 - **Falas do Apresentador:**
@@ -52,7 +38,7 @@
 
 ---
 
-### Slide 4: Situação-Problema 1: A Anarquia das Instruções Fragmentadas
+### Slide 3: Situação-Problema 1: A Anarquia das Instruções Fragmentadas
 - **Título:** A Anarquia das Instruções Fragmentadas
 - **Subtítulo:** Situação-Problema do Mundo Real • A Dor Prática das Diretrizes Ad-Hoc e Inconsistentes
 - **Falas do Apresentador:**
@@ -66,7 +52,7 @@
 
 ---
 
-### Slide 5: Solução de Engenharia 1: Configuração Determinística com AGENTS.md
+### Slide 4: Solução de Engenharia 1: Configuração Determinística com AGENTS.md
 - **Título:** Configuração Determinística com AGENTS.md
 - **Subtítulo:** Solução de Engenharia • O Paradigma de Governança Agêntica como Código (GitOps)
 - **Falas do Apresentador:**
@@ -78,7 +64,7 @@
 
 ---
 
-### Slide 6: A Cadeia de Descoberta e Precedência em 3 Camadas
+### Slide 5: A Cadeia de Descoberta e Precedência em 3 Camadas
 - **Título:** A Cadeia de Descoberta e Precedência
 - **Subtítulo:** Mecânica Algorítmica • Resolução Hierárquica: Global ➔ Repositório ➔ Subdiretórios
 - **Falas do Apresentador:**
@@ -92,7 +78,7 @@
 
 ---
 
-### Slide 7: Laboratório Interativo 1: Simulador da Cadeia AGENTS.md
+### Slide 6: Laboratório Interativo 1: Simulador da Cadeia AGENTS.md
 - **Título:** Laboratório Interativo: Cadeia AGENTS.md
 - **Subtítulo:** Prática Aplicada • Simulador de Resolução de Precedência e Compilação de Prompt
 - **Falas do Apresentador:**
@@ -104,7 +90,7 @@
 
 ---
 
-### Slide 8: Teoria e Formalismo: O Limite Físico de Memória de Instrução
+### Slide 7: Teoria e Formalismo: O Limite Físico de Memória de Instrução
 - **Título:** O Limite Físico da Memória de Instrução
 - **Subtítulo:** Teoria & Formalismo • O Parâmetro project_doc_max_bytes e a Saturação de Atenção
 - **Falas do Apresentador:**
@@ -116,7 +102,7 @@
 
 ---
 
-### Slide 9: Mapeamento de Fallbacks e Variáveis de Ambiente
+### Slide 8: Mapeamento de Fallbacks e Variáveis de Ambiente
 - **Título:** Mapeamento de Fallbacks e Perfis Isolados
 - **Subtítulo:** Solução de Engenharia • project_doc_fallback_filenames e a Variável CODEX_HOME
 - **Falas do Apresentador:**
@@ -128,7 +114,7 @@
 
 ---
 
-### Slide 10: Regras de Code Review em AGENTS.md
+### Slide 9: Regras de Code Review em AGENTS.md
 - **Título:** Regras de Code Review em AGENTS.md
 - **Subtítulo:** Teoria & Formalismo • A Seção Canônica ## Code Review Rules e Boas Práticas
 - **Falas do Apresentador:**
@@ -140,7 +126,7 @@
 
 ---
 
-### Slide 11: Situação-Problema 2: Context Pollution e Context Rot
+### Slide 10: Situação-Problema 2: Context Pollution e Context Rot
 - **Título:** Context Pollution e Context Rot
 - **Subtítulo:** Situação-Problema do Mundo Real • A Degradação da Atenção em Contextos Saturados
 - **Falas do Apresentador:**
@@ -154,7 +140,7 @@
 
 ---
 
-### Slide 12: Solução de Engenharia 2: Decomposição em Subagentes Especializados
+### Slide 11: Solução de Engenharia 2: Decomposição em Subagentes Especializados
 - **Título:** Decomposição em Subagentes Especializados
 - **Subtítulo:** Solução de Engenharia • Isolamento de Threads e Resumos Destilados (Summaries)
 - **Falas do Apresentador:**
@@ -166,7 +152,7 @@
 
 ---
 
-### Slide 13: Laboratório Interativo 2: Simulador de Context Rot e Subagentes
+### Slide 12: Laboratório Interativo 2: Simulador de Context Rot e Subagentes
 - **Título:** Laboratório Interativo: Context Rot
 - **Subtítulo:** Prática Aplicada • Comparativo em Tempo Real: Single-Agent Saturado vs. Multi-Subagent
 - **Falas do Apresentador:**
@@ -178,7 +164,7 @@
 
 ---
 
-### Slide 14: Orquestração, Ciclo de Vida e Sincronização
+### Slide 13: Orquestração, Ciclo de Vida e Sincronização
 - **Título:** Orquestração, Ciclo de Vida e Sincronização
 - **Subtítulo:** Teoria & Formalismo • Spawning, Threads Concorrentes e Barreira Wait-for-All
 - **Falas do Apresentador:**
@@ -194,7 +180,7 @@
 
 ---
 
-### Slide 15: Matriz de Modelos e Esforço de Raciocínio (Reasoning Effort)
+### Slide 14: Matriz de Modelos e Esforço de Raciocínio (Reasoning Effort)
 - **Título:** Matriz de Modelos e Esforço de Raciocínio
 - **Subtítulo:** Teoria & Formalismo • Calibração de Inteligência, Latência e Custo de Tokens
 - **Falas do Apresentador:**
@@ -206,7 +192,7 @@
 
 ---
 
-### Slide 16: Anatomia Formal do Arquivo Custom Agent (.toml)
+### Slide 15: Anatomia Formal do Arquivo Custom Agent (.toml)
 - **Título:** Anatomia Formal do Arquivo Custom Agent
 - **Subtítulo:** Teoria & Formalismo • Estrutura Declarativa de Configuração em Arquivos TOML
 - **Falas do Apresentador:**
@@ -218,7 +204,7 @@
 
 ---
 
-### Slide 17: Políticas de Sandbox e Modos de Aprovação
+### Slide 16: Políticas de Sandbox e Modos de Aprovação
 - **Título:** Políticas de Sandbox e Modos de Aprovação
 - **Subtítulo:** Governança Corporativa • O Princípio do Menor Privilégio e Portões de Segurança
 - **Falas do Apresentador:**
@@ -230,7 +216,7 @@
 
 ---
 
-### Slide 18: Laboratório Interativo 3: Construtor e Validador de Custom Agents
+### Slide 17: Laboratório Interativo 3: Custom Agent Builder
 - **Título:** Laboratório Interativo: Custom Agent Builder
 - **Subtítulo:** Prática Aplicada • Interface Interativa de Criação e Validação de TOML
 - **Falas do Apresentador:**
@@ -242,7 +228,7 @@
 
 ---
 
-### Slide 19: Padrões Arquiteturais: PR Review Triplo e Debugging Full-Stack
+### Slide 18: Padrões Arquiteturais da Indústria
 - **Título:** Padrões Arquiteturais da Indústria
 - **Subtítulo:** Engenharia Aplicada • Estudos de Caso Canônicos da Documentação da OpenAI
 - **Falas do Apresentador:**
@@ -254,7 +240,7 @@
 
 ---
 
-### Slide 20: Laboratório Interativo 4: Orquestrador de PR Review em Tempo Real
+### Slide 19: Laboratório Interativo 4: PR Review Runner
 - **Título:** Laboratório Interativo: PR Review Runner
 - **Subtítulo:** Prática Aplicada • Simulação de Spawning, Concorrência e Barreira de Sincronização
 - **Falas do Apresentador:**
@@ -266,7 +252,7 @@
 
 ---
 
-### Slide 21: Laboratório Interativo 5: Quiz Interativo de Fixação
+### Slide 20: Laboratório Interativo 5: Quiz Interativo de Fixação
 - **Título:** Quiz Interativo de Fixação
 - **Subtítulo:** Avaliação e Fechamento • 5 Questões Avançadas sobre AGENTS.md e Subagentes
 - **Falas do Apresentador:**

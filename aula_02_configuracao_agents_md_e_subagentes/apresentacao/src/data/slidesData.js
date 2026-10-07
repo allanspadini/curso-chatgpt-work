@@ -1,6 +1,5 @@
 import React from 'react';
 import TitleSlide from '../components/visual/TitleSlide';
-import InstructorSlide from '../components/visual/InstructorSlide';
 import RoadmapSlide from '../components/visual/RoadmapSlide';
 import InstructionAnarchyVisual from '../components/visual/InstructionAnarchyVisual';
 import DeterministicConfigVisual from '../components/visual/DeterministicConfigVisual';
@@ -38,20 +37,6 @@ Preparem-se para uma aula densa, prática e de alto nível técnico, combinando 
   },
   {
     id: 2,
-    type: 'instructor',
-    title: 'Apresentação do Docente',
-    subtitle: 'Prof. Dr. Allan Segovia-Spadini • Trajetória Acadêmica e Engenharia Agêntica',
-    component: InstructorSlide,
-    notes: `Para quem está ingressando agora na disciplina, gostaria de ressaltar minha formação e a perspectiva que guia nossas aulas. 
-
-Sou o Allan Segovia-Spadini, doutor e mestre em Ciências pelo Instituto de Astronomia, Geofísica e Ciências Atmosféricas da Universidade de São Paulo (USP), com período de estágio doutoral na Delft University of Technology (TU Delft), na Holanda. Minha raiz científica foi construída sobre métodos numéricos, processamento digital de sinais e inferência estatística em problemas inversos de alta complexidade dimensional.
-
-Quando aplicamos essa formação quantitativa à Inteligência Artificial moderna e aos Grandes Modelos de Linguagem, enxergamos a engenharia agêntica não como um exercício especulativo de adivinhação de palavras, mas como um sistema distribuído estocástico que precisa de fronteiras determinísticas, contratos formais, barramentos de contexto limpos e controle estrito de acessos.
-
-É essa mentalidade de engenharia de software e rigor estatístico que aplicaremos ao longo de todo o curso. Aqui, cada decisão de arquitetura — desde o tamanho em bytes de um arquivo de configuração até a concessão de permissão de escrita em sandbox — é justificada técnica e matematicamente.`
-  },
-  {
-    id: 3,
     type: 'roadmap',
     title: 'Roadmap da Aula 2: Trilha Pedagógica',
     subtitle: 'Da Governança de Instruções Hierárquicas à Concorrência de Subagentes Especializados',
@@ -67,7 +52,7 @@ No Módulo 3 — Degradação de Contexto e Arquitetura de Subagentes —, entra
 Por fim, no Módulo 4 — Custom Agents em TOML, Sandbox e Governança —, aprenderemos a escrever arquivos declarativos de subagentes, aplicando o Princípio do Menor Privilégio com sandbox_mode em read-only e workspace-write, simulando em laboratório padrões reais de PR Review e depuração full-stack com ferramentas MCP.`
   },
   {
-    id: 4,
+    id: 3,
     type: 'visual-component',
     title: 'A Anarquia das Instruções Fragmentadas',
     subtitle: 'Situação-Problema do Mundo Real • A Dor Prática das Diretrizes Ad-Hoc e Inconsistentes',
@@ -81,7 +66,7 @@ O resultado prático dessa abordagem é o caos: instruções contraditórias, re
 Instruções não podem depender da memória do operador humano ou de caixas de diálogo soltas. Elas precisam ser tratadas como código-fonte de primeira classe.`
   },
   {
-    id: 5,
+    id: 4,
     type: 'visual-component',
     title: 'Configuração Determinística com AGENTS.md',
     subtitle: 'Solução de Engenharia • O Paradigma de Governança Agêntica como Código (GitOps)',
@@ -93,7 +78,7 @@ Em vez de digitar regras repetidamente na interface web, você versiona arquivos
 Essa abordagem traz três ganhos imediatos de engenharia: primeiro, rastreabilidade absoluta via histórico de commits; segundo, uniformidade entre todos os desenvolvedores da organização, do estagiário ao tech lead; e terceiro, granularidade modular, permitindo que diretrizes gerais da empresa convivam harmoniosamente com regras hiperespecíficas de cada microserviço.`
   },
   {
-    id: 6,
+    id: 5,
     type: 'visual-component',
     title: 'A Cadeia de Descoberta e Precedência',
     subtitle: 'Mecânica Algorítmica • Resolução Hierárquica: Global ➔ Repositório ➔ Subdiretórios',
@@ -107,7 +92,7 @@ Camada 2: Escopo de Projeto. A partir da raiz do repositório Git, o Codex desce
 Camada 3: Ordem de Merge e Precedência Semântica. O Codex concatena esses arquivos de cima para baixo (top-down), unindo-os por quebras de linha duplas. Como os modelos de linguagem processam texto sequencialmente, as instruções que aparecem mais ao final do prompt combinado possuem maior peso de atenção. Portanto, o arquivo mais próximo do diretório atual de trabalho sempre sobrescreve diretrizes genéricas da raiz.`
   },
   {
-    id: 7,
+    id: 6,
     type: 'interactive',
     title: 'Laboratório Interativo: Cadeia AGENTS.md',
     subtitle: 'Prática Aplicada • Simulador de Resolução de Precedência e Compilação de Prompt',
@@ -119,7 +104,7 @@ No painel à esquerda, vocês podem alternar o diretório de trabalho entre a ra
 Observem atentamente o painel central e o painel à direita: o simulador renderiza a árvore de arquivos, calcula os nós visitados pelo algoritmo de caminhamento e exibe o prompt final concatenado que o Codex efetivamente injeta no modelo. Notem que quando o override está ativo em payments, a regra de executar 'make test-payments' substitui o 'npm test' da raiz, enquanto a proibição de rotacionar chaves de API é inserida no final do contexto, garantindo prioridade semântica máxima. Explorem os diferentes nós e observem o status de compilação.`
   },
   {
-    id: 8,
+    id: 7,
     type: 'visual-component',
     title: 'O Limite Físico da Memória de Instrução',
     subtitle: 'Teoria & Formalismo • O Parâmetro project_doc_max_bytes e a Saturação de Atenção',
@@ -131,7 +116,7 @@ O Codex impõe um limite estrito controlado pelo parâmetro project_doc_max_byte
 Matematicamente, a razão para essa barreira é econômica e de densidade de atenção. Embora os LLMs modernos possuam janelas de contexto que chegam a centenas de milhares de tokens, quanto maior o volume de texto não essencial injetado no prefixo do prompt, maior é o custo computacional por turno e maior é o risco de dispersão dos pesos de atenção da auto-atenção. Instruções devem ser concisas e cirúrgicas. Se você ultrapassar 32 KiB, a solução correta de engenharia não é simplesmente inflar o limite, mas sim modularizar as regras em subdiretórios específicos.`
   },
   {
-    id: 9,
+    id: 8,
     type: 'visual-component',
     title: 'Mapeamento de Fallbacks e Perfis Isolados',
     subtitle: 'Solução de Engenharia • project_doc_fallback_filenames e a Variável CODEX_HOME',
@@ -143,7 +128,7 @@ Para evitar renomeações em massa que quebrariam esteiras legadas, o Codex disp
 Além disso, quando configuramos pipelines de integração contínua (CI/CD) ou robôs de automação de segurança, não queremos misturar as preferências da máquina do desenvolvedor com as regras do pipeline. Para isso, utilizamos a variável de ambiente CODEX_HOME. Ao exportar CODEX_HOME=/opt/ci/codex, o agente isola seu diretório global, permitindo a execução de perfis totalmente segregados para produção, homologação e desenvolvimento local.`
   },
   {
-    id: 10,
+    id: 9,
     type: 'visual-component',
     title: 'Regras de Code Review em AGENTS.md',
     subtitle: 'Teoria & Formalismo • A Seção Canônica ## Code Review Rules e Boas Práticas',
@@ -155,7 +140,7 @@ Toda regra de revisão deve seguir uma estrutura semântica em três partes: o t
 A diretriz de ouro de engenharia aqui é a separação de responsabilidades: nunca use AGENTS.md para policiar formatação, espaçamento ou linter sintático. Isso é papel de analisadores estáticos tradicionais no pipeline de CI, que custam frações de milissegundo e rodam deterministicamente. Reserve as Code Review Rules para lógica de negócio complexa, prevenção de regressões comportamentais, segurança de concorrência e integridade arquitetural.`
   },
   {
-    id: 11,
+    id: 10,
     type: 'visual-component',
     title: 'Context Pollution e Context Rot',
     subtitle: 'Situação-Problema do Mundo Real • A Degradação da Atenção em Contextos Saturados',
@@ -169,7 +154,7 @@ Essa dinâmica gera duas patologias graves: a primeira é o Context Pollution �
 Um único agente executando tudo na mesma thread é uma receita para falha operacional.`
   },
   {
-    id: 12,
+    id: 11,
     type: 'visual-component',
     title: 'Decomposição em Subagentes Especializados',
     subtitle: 'Solução de Engenharia • Isolamento de Threads e Resumos Destilados (Summaries)',
@@ -181,7 +166,7 @@ Em vez de permitir que o agente principal execute comandos barulhentos no seu pr
 O subagente A varre o repositório em busca de pontos de falha; o subagente B analisa logs de segurança; o subagente C pesquisa documentações de APIs externas. Quando concluem, as threads secundárias não despejam seus logs brutos no chat principal. Elas processam, filtram e retornam apenas resumos destilados, com referências pontuais de arquivos e linhas. A thread orquestradora permanece cirúrgica, focada nas decisões de negócio e imune à poluição de contexto.`
   },
   {
-    id: 13,
+    id: 12,
     type: 'interactive',
     title: 'Laboratório Interativo: Context Rot',
     subtitle: 'Prática Aplicada • Comparativo em Tempo Real: Single-Agent Saturado vs. Multi-Subagent',
@@ -193,7 +178,7 @@ O subagente A varre o repositório em busca de pontos de falha; o subagente B an
 À direita, temos a orquestração Multi-Subagent. Cada bloco barulhento é delegado para uma thread secundária. Notem que a janela de contexto principal consome uma fração mínima de tokens, retendo apenas sínteses de alto valor informativo, mantendo a acurácia de raciocínio próxima a 98%. Este contraste visual comprova por que sistemas agênticos corporativos precisam de subagentes para tarefas de alta intensidade de leitura e pesquisa.`
   },
   {
-    id: 14,
+    id: 13,
     type: 'visual-component',
     title: 'Orquestração, Ciclo de Vida e Sincronização',
     subtitle: 'Teoria & Formalismo • Spawning, Threads Concorrentes e Barreira Wait-for-All',
@@ -209,7 +194,7 @@ Fase 3: Barreira de Sincronização (Wait-for-All Barrier). O orquestrador entra
 Fase 4: Destilação e Consolidação Final. O orquestrador coleta as saídas destiladas, cruza as evidências, valida contra os critérios de aceitação do contrato e entrega o artefato final ao usuário.`
   },
   {
-    id: 15,
+    id: 14,
     type: 'visual-component',
     title: 'Matriz de Modelos e Esforço de Raciocínio',
     subtitle: 'Teoria & Formalismo • Calibração de Inteligência, Latência e Custo de Tokens',
@@ -221,7 +206,7 @@ O ecossistema Codex trabalha com dois modelos principais: o GPT-6.1 Sol e o GPT-
 Além do modelo, calibramos o parâmetro model_reasoning_effort, que varia de low até ultra. Para tarefas diretas e repetitivas, utilizamos low ou medium, priorizando resposta rápida. Para agentes revisores e auditores de segurança, fixamos em high ou superior, permitindo que o modelo rastreie hipóteses concorrentes e testes de borda antes de emitir o veredito.`
   },
   {
-    id: 16,
+    id: 15,
     type: 'visual-component',
     title: 'Anatomia Formal do Arquivo Custom Agent',
     subtitle: 'Teoria & Formalismo • Estrutura Declarativa de Configuração em Arquivos TOML',
@@ -233,7 +218,7 @@ Cada arquivo deve conter obrigatoriamente três campos canônicos: o 'name', que
 O arquivo TOML permite ainda parametrizar chaves avançadas de ambiente, como 'model', 'model_reasoning_effort', 'sandbox_mode', 'skills.config' e até servidores MCP exclusivos sob a seção [mcp_servers]. Essa estrutura confere ao arquiteto o poder de desenhar um time de especialistas sob medida para o seu domínio tecnológico.`
   },
   {
-    id: 17,
+    id: 16,
     type: 'visual-component',
     title: 'Políticas de Sandbox e Modos de Aprovação',
     subtitle: 'Governança Corporativa • O Princípio do Menor Privilégio e Portões de Segurança',
@@ -245,7 +230,7 @@ A regra de ouro é o Princípio do Menor Privilégio: subagentes de exploração
 Além disso, o Codex propaga as políticas do turno pai para todos os filhos. Se um subagente em background necessitar de uma aprovação que exige interação humana, o CLI do Codex apresenta uma notificação destacada; o operador pode pressionar a tecla 'o' para inspecionar a thread filha antes de aprovar ou rejeitar. Em ambientes não interativos (como pipelines automáticos), ações que demandem aprovação não concedida falham de forma segura, garantindo que nenhum subagente opere sem custódia humana.`
   },
   {
-    id: 18,
+    id: 17,
     type: 'interactive',
     title: 'Laboratório Interativo: Custom Agent Builder',
     subtitle: 'Prática Aplicada • Interface Interativa de Criação e Validação de TOML',
@@ -257,7 +242,7 @@ Nesta interface, vocês podem criar a especificação declarativa de um novo sub
 Observem a validação em tempo real: o sistema confere se os campos obrigatórios estão preenchidos e gera dinamicamente o arquivo TOML pronto para ser salvo em .codex/agents/. Notem como a seleção da política de sandbox isola o agente em modo read-only e como o prompt de instruções molda o comportamento do agente para que ele nunca fuja do seu escopo delimitado.`
   },
   {
-    id: 19,
+    id: 18,
     type: 'visual-component',
     title: 'Padrões Arquiteturais da Indústria',
     subtitle: 'Engenharia Aplicada • Estudos de Caso Canônicos da Documentação da OpenAI',
@@ -269,7 +254,7 @@ O primeiro padrão é o Triplo PR Review: diante de um Pull Request complexo, o 
 O segundo padrão é o Debugging Full-Stack de UI: diante de um erro complexo de front-end, o browser_debugger utiliza ferramentas de navegador via MCP para reproduzir o bug e capturar screenshots; o code_mapper rastreia os componentes responsáveis; e somente após a causa raiz estar comprovada, o ui_fixer é instanciado em modo de escrita para aplicar a menor alteração cirúrgica defensável. Essa é a essência do design agêntico profissional.`
   },
   {
-    id: 20,
+    id: 19,
     type: 'interactive',
     title: 'Laboratório Interativo: PR Review Runner',
     subtitle: 'Prática Aplicada • Simulação de Spawning, Concorrência e Barreira de Sincronização',
@@ -281,7 +266,7 @@ Cliquem no botão 'Disparar Revisão em Paralelo'. Observem a timeline de execu�
 Reparem no momento exato em que a Barreira Wait-for-All entra em ação: mesmo que o pr_explorer termine primeiro, o orquestrador não fecha a análise; ele aguarda os demais colegas finalizarem seus relatórios e, em seguida, unifica os resumos destilados em um parecer executivo consolidado com referências de arquivos e níveis de severidade. Esta simulação materializa todo o fluxo que estudamos teoricamente.`
   },
   {
-    id: 21,
+    id: 20,
     type: 'interactive',
     title: 'Quiz Interativo de Fixação',
     subtitle: 'Avaliação e Fechamento • 5 Questões Avançadas sobre AGENTS.md e Subagentes',

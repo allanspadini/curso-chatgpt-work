@@ -9,7 +9,7 @@ export default function RoadmapSlide() {
       desc: 'Anarquia das regras ad-hoc, GitOps determinístico, resolução em 3 camadas (Global ➔ Raiz ➔ Cwd) e precedência semântica top-down.',
       icon: GitBranch,
       color: '#0A345D',
-      slides: 'Slides 04–07',
+      slides: 'Slides 03–06',
       interactive: 'Lab 1: Simulador de Cadeia de Descoberta',
     },
     {
@@ -18,7 +18,7 @@ export default function RoadmapSlide() {
       desc: 'Teto de 32 KiB (project_doc_max_bytes), política de truncamento, fallbacks legados, isolamento com CODEX_HOME e sintaxe de Code Review Rules.',
       icon: HardDrive,
       color: '#0369A1',
-      slides: 'Slides 08–10',
+      slides: 'Slides 07–09',
       interactive: 'Rigor: Análise de Bytes & Truncamento',
     },
     {
@@ -27,7 +27,7 @@ export default function RoadmapSlide() {
       desc: 'Patologias cognitivas de LLMs (Context Pollution & Context Rot), spawning concorrente, barreira wait-for-all e matriz Sol vs Luna com reasoning effort.',
       icon: Cpu,
       color: '#166534',
-      slides: 'Slides 11–15',
+      slides: 'Slides 10–14',
       interactive: 'Lab 2: Simulador de Degradação de Contexto',
     },
     {
@@ -36,7 +36,7 @@ export default function RoadmapSlide() {
       desc: 'Schema formal de subagentes em TOML, princípio do menor privilégio (read-only vs workspace-write), padrões PR Review e Quiz de Fechamento.',
       icon: Terminal,
       color: '#7C2D12',
-      slides: 'Slides 16–21',
+      slides: 'Slides 15–20',
       interactive: 'Labs 3, 4 e 5: Builder, Runner & Quiz',
     },
   ];
@@ -79,7 +79,7 @@ export default function RoadmapSlide() {
           </span>
         </div>
         <span style={{ fontSize: '0.82rem', color: '#0369A1', fontWeight: 700 }}>
-          21 Slides • 5 Laboratórios Interativos
+          20 Slides • 5 Laboratórios Interativos
         </span>
       </div>
 

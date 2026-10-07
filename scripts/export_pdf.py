@@ -21,7 +21,7 @@ AULAS_CONFIG = {
         "folder": "aula_02_configuracao_agents_md_e_subagentes",
         "pdf_name": "aula_02_apresentacao.pdf",
         "port": 8790,
-        "total_slides": 21,
+        "total_slides": 20,
     },
 }
 
