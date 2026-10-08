@@ -1,0 +1,91 @@
+Reunião: Evolução do Aplicativo - Produto
+Data: 28/09/2026
+Participantes: Ana Ribeiro, Diego Santos, Beatriz Lima, Rafael Gomes, Camila Rocha
+
+Ana: Temos três temas hoje: novo onboarding, notificações e o problema de abandono no cadastro.
+
+Beatriz: Vou começar pelos dados. Hoje 38% dos usuários que iniciam o cadastro não concluem o processo.
+
+Ana: Sabemos em qual etapa ocorre a maior saída?
+
+Beatriz: Sim. A maior queda acontece na etapa de confirmação de endereço. Aproximadamente 19% dos usuários abandonam ali.
+
+Diego: Essa tela hoje exige endereço completo e CEP antes de permitir continuar.
+
+Camila: Nos testes de usabilidade, várias pessoas disseram que não entendiam por que precisávamos do endereço naquele momento.
+
+Ana: Podemos retirar essa etapa do onboarding?
+
+Diego: Tecnicamente podemos pedir o endereço depois, mas preciso verificar com compliance se existe alguma obrigação de coleta antes da criação da conta.
+
+Ana: Então ainda não vamos remover. Diego, verifica com compliance.
+
+Diego: Certo. Posso tentar conseguir uma resposta até sexta-feira, 2 de outubro.
+
+Rafael: Se compliance permitir, eu sugiro mover o endereço para depois da primeira utilização.
+
+Camila: Concordo. Também podemos reduzir o onboarding de sete para quatro telas.
+
+Ana: Isso já foi desenhado?
+
+Camila: Tenho um protótipo inicial.
+
+Ana: Quero testar antes de decidir. Camila, consegue organizar um teste com usuários?
+
+Camila: Sim. Posso fazer cinco entrevistas até 9 de outubro.
+
+Beatriz: Cinco é suficiente?
+
+Camila: Para uma primeira rodada qualitativa, sim. Se aparecer muita divergência, fazemos outra rodada.
+
+Ana: Perfeito. Então o onboarding novo ainda não está aprovado. Vamos esperar os testes.
+
+Rafael: Sobre notificações, a equipe de desenvolvimento já terminou a infraestrutura de push.
+
+Diego: Falta definir as regras de envio.
+
+Ana: Eu não quero notificações demais. Vamos começar apenas com confirmação de transações e alertas de segurança.
+
+Rafael: Então promoções ficam fora da primeira versão?
+
+Ana: Sim. Fica decidido que a primeira versão terá apenas notificações transacionais e de segurança.
+
+Diego: Consigo colocar isso na sprint que começa em 5 de outubro.
+
+Ana: Ótimo.
+
+Beatriz: Seria importante medir quantas pessoas habilitam notificações e quantas interagem com elas.
+
+Rafael: Podemos criar eventos de analytics.
+
+Ana: Quem pode cuidar disso?
+
+Beatriz: Eu defino os eventos que precisamos medir e o Rafael implementa.
+
+Ana: Prazo?
+
+Beatriz: Consigo entregar a especificação até 6 de outubro.
+
+Rafael: Se receber no dia 6, consigo implementar até o fim da sprint.
+
+Ana: Quando termina a sprint?
+
+Rafael: 16 de outubro.
+
+Ana: Perfeito.
+
+Camila: Temos ainda a questão do modo escuro. Recebemos muitos pedidos.
+
+Ana: Quantos?
+
+Beatriz: Não tenho o número exato agora.
+
+Rafael: Tecnicamente não é complicado, mas não estava no roadmap.
+
+Ana: Então não vamos incluir agora. Primeiro quero dados sobre quantos usuários estão pedindo isso.
+
+Beatriz: Posso levantar essa informação nos chamados e avaliações das lojas.
+
+Ana: Faça o levantamento. Não precisa implementar nada ainda.
+
+Ana: Resumindo: Diego consulta compliance sobre o endereço até dia 2; Camila testa o novo onboarding até dia 9; notificações transacionais e de segurança estão aprovadas para a próxima sprint; Beatriz define os eventos de analytics até dia 6 e Rafael implementa até dia 16. Modo escuro continua em avaliação.

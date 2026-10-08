@@ -31,6 +31,26 @@ Toda a abordagem pedagógica adota rigorosamente a metodologia **Situação-Prob
 
 ---
 
+### [Aula 02: Configuração de Agentes com AGENTS.md e Arquitetura de Subagentes Especializados](./aula_02_configuracao_agents_md_e_subagentes/)
+- **Status:** Disponível
+- **Apresentação Interativa:** [Acessar Slides da Aula 2](https://allanspadini.github.io/curso-chatgpt-work/aula_02_configuracao_agents_md_e_subagentes/)
+- **Download do PDF:** [Baixar aula_02_apresentacao.pdf](https://allanspadini.github.io/curso-chatgpt-work/aula_02_configuracao_agents_md_e_subagentes/aula_02_apresentacao.pdf)
+- **Tópicos Abordados:**
+  1. *Governança Determinística via AGENTS.md* (GitOps de IA, precedência em 3 camadas e soberania do nó folha).
+  2. *Gestão de Memória, Fallbacks e Code Review Rules* (teto de 32 KiB / `project_doc_max_bytes`, truncamento seguro e regras de revisão).
+  3. *Subagentes Especializados & Combate ao Context Rot* (mitigação da perda de atenção, matriz Sol vs Luna e isolamento de contexto).
+  4. *Custom Agents em TOML, Sandboxing e Orquestração* (schema declarativo, barreiras de sincronização e princípio do menor privilégio).
+
+#### 📦 Materiais Práticos da Aula 02 (Downloads em .zip)
+| Recurso Prático | Descrição | Link de Download (.zip) |
+| :--- | :--- | :--- |
+| 📁 **Análise de Concursos** | Pesquisa autônoma na Web, regras de AGENTS.md e geração de Excel | 📥 [Baixar analise-de-concursos.zip](https://github.com/allanspadini/curso-chatgpt-work/raw/main/aula_02_configuracao_agents_md_e_subagentes/analise-de-concursos.zip) |
+| 🧾 **Notas Fiscais** | Pipeline multimodal (OCR em JPEG) para extração de dados em JSON | 📥 [Baixar notas_fiscais.zip](https://github.com/allanspadini/curso-chatgpt-work/raw/main/aula_02_configuracao_agents_md_e_subagentes/notas_fiscais.zip) |
+| 👥 **Processamento de Reuniões** | Árvore hierárquica de `AGENTS.md` com 4 subpastas especializadas (`atas`, `resumos`, `tarefas`, `dados`) | 📥 [Baixar reunioes.zip](https://github.com/allanspadini/curso-chatgpt-work/raw/main/aula_02_configuracao_agents_md_e_subagentes/reunioes.zip) |
+| 📦 **Todos os Recursos** | Pacote unificado com todos os laboratórios práticos da Aula 02 | 📥 [Baixar todos_materiais_praticos_aula_02.zip](https://github.com/allanspadini/curso-chatgpt-work/raw/main/aula_02_configuracao_agents_md_e_subagentes/todos_materiais_praticos_aula_02.zip) |
+
+---
+
 ## 🛠️ Tecnologias e Arquitetura
 
 - **Frontend das Apresentações:** React 18, Vite, KaTeX (renderização matemática) e Lucide React.

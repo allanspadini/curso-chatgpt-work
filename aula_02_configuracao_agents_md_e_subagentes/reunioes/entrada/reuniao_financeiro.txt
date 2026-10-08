@@ -1,0 +1,83 @@
+Reunião: Fechamento Financeiro e Orçamento
+Data: 30/09/2026
+Participantes: Roberto Nunes, Patrícia Souza, Marcelo Andrade, Elaine Torres
+
+Roberto: Vamos começar pelo fechamento de setembro. Estamos projetando receita de R$ 8,4 milhões, aproximadamente 3% abaixo da meta.
+
+Patrícia: A diferença veio principalmente do canal corporativo. O varejo ficou praticamente dentro do esperado.
+
+Marcelo: Nas despesas, tivemos um aumento relevante em infraestrutura de tecnologia. O valor ficou R$ 180 mil acima do orçamento mensal.
+
+Roberto: Sabemos o motivo?
+
+Marcelo: Principalmente aumento de consumo de nuvem e contratação emergencial de capacidade adicional.
+
+Elaine: Parte disso está relacionada ao novo sistema de recomendação. O volume de processamento foi maior do que o previsto.
+
+Roberto: Isso vai continuar nos próximos meses?
+
+Elaine: Se mantivermos a arquitetura atual, provavelmente sim.
+
+Patrícia: Então precisamos rever a projeção do quarto trimestre.
+
+Roberto: Concordo. Marcelo, atualize a projeção considerando esse novo nível de gasto.
+
+Marcelo: Consigo entregar até 7 de outubro.
+
+Roberto: Ótimo.
+
+Patrícia: Temos ainda uma proposta do fornecedor de nuvem. Se fecharmos compromisso anual, conseguimos desconto estimado de 12%.
+
+Elaine: Mas aí ficamos comprometidos com um volume mínimo.
+
+Roberto: Temos os números exatos?
+
+Patrícia: Ainda não. Recebemos apenas uma proposta preliminar.
+
+Roberto: Então não vamos aprovar nenhum contrato agora. Patrícia, peça uma proposta formal com condições, volumes mínimos e multa de cancelamento.
+
+Patrícia: Certo. Vou solicitar ainda hoje.
+
+Marcelo: Outro ponto é o orçamento de viagens. Algumas áreas já consumiram mais de 80% do orçamento anual.
+
+Roberto: Quais áreas?
+
+Marcelo: Comercial está em 88% e operações em 84%.
+
+Roberto: Vamos bloquear novas viagens?
+
+Patrícia: Eu evitaria um bloqueio geral. Existem viagens comerciais importantes previstas para novembro.
+
+Elaine: Talvez possamos exigir aprovação adicional acima de determinado valor.
+
+Roberto: Podemos fazer isso. A partir de outubro, qualquer viagem acima de R$ 5 mil precisa de aprovação do diretor da área e do financeiro.
+
+Marcelo: Isso vale para viagens já aprovadas?
+
+Roberto: Não. Apenas para novas solicitações feitas a partir de 1º de outubro.
+
+Patrícia: Precisamos comunicar os gestores.
+
+Roberto: Patrícia, você pode enviar a comunicação?
+
+Patrícia: Sim. Envio até amanhã.
+
+Elaine: Tenho uma dúvida sobre o projeto de modernização do data center. O fornecedor pediu antecipação de uma parcela de R$ 320 mil.
+
+Roberto: Isso estava previsto?
+
+Elaine: A parcela estava prevista para novembro, mas eles querem receber em outubro para garantir os equipamentos.
+
+Marcelo: Antecipar afeta nosso fluxo de caixa.
+
+Roberto: Não vamos autorizar sem analisar o impacto. Marcelo, consegue simular os dois cenários?
+
+Marcelo: Sim, mas primeiro preciso confirmar com tesouraria algumas entradas previstas.
+
+Roberto: Certo. Faça a simulação, mas não temos prazo fechado ainda.
+
+Patrícia: Então a antecipação fica pendente.
+
+Roberto: Exatamente.
+
+Roberto: Para consolidar: Marcelo atualiza a projeção do quarto trimestre até 7 de outubro; Patrícia solicita proposta formal do fornecedor de nuvem; novas viagens acima de R$ 5 mil passam a exigir dupla aprovação a partir de 1º de outubro; Patrícia comunica os gestores até amanhã; e Marcelo vai analisar o impacto da antecipação dos R$ 320 mil, mas ainda sem prazo definido.

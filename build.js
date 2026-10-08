@@ -47,7 +47,15 @@ if (fs.existsSync(pdfPath02)) {
   fs.copySync(pdfPath02, path.join(destAula02, 'aula_02_apresentacao.pdf'));
   console.log('✅ PDF da Aula 02 copiado para dist/aula_02_configuracao_agents_md_e_subagentes/aula_02_apresentacao.pdf');
 }
-console.log('✅ Apresentação da Aula 02 copiada para dist/aula_02_configuracao_agents_md_e_subagentes/');
+
+// Copiar arquivos .zip de recursos práticos da Aula 02
+const aula02Root = path.join(ROOT_DIR, 'aula_02_configuracao_agents_md_e_subagentes');
+const zipFiles = fs.readdirSync(aula02Root).filter(file => file.endsWith('.zip'));
+for (const zipFile of zipFiles) {
+  fs.copySync(path.join(aula02Root, zipFile), path.join(destAula02, zipFile));
+  console.log(`📦 Recurso prático copiado: ${zipFile} -> dist/aula_02_configuracao_agents_md_e_subagentes/${zipFile}`);
+}
+console.log('✅ Apresentação e recursos da Aula 02 copiados para dist/aula_02_configuracao_agents_md_e_subagentes/');
 
 // 6. Copiar arquivos raiz para dist/
 fs.copySync(path.join(ROOT_DIR, 'index.html'), path.join(DIST_DIR, 'index.html'));

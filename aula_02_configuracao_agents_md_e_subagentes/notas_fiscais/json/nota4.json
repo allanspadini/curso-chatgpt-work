@@ -1,0 +1,32 @@
+{
+  "arquivo": "nota4.jpeg",
+  "fornecedor": {
+    "nome": "LOJAS EXPRESSO S.A.",
+    "cnpj": "45.678.910/0001-22"
+  },
+  "nota": {
+    "numero": "000.789.654",
+    "serie": "003",
+    "data_emissao": "2026-10-07",
+    "hora_emissao": "15:35:44",
+    "chave_acesso": "3526 1045 6789 1000 0122 6500 3000 7896 5419 8765 4321"
+  },
+  "destinatario": {
+    "nome": "CARLOS ALBERTO JUNIOR",
+    "cpf_cnpj": "456.123.789-10"
+  },
+  "valores": {
+    "produtos": 134.90,
+    "servicos": 5.00,
+    "frete": 0.00,
+    "desconto": 10.00,
+    "impostos": 12.50,
+    "tributos_estimados": 18.20,
+    "total": 129.90
+  },
+  "pagamento": {
+    "forma": "Cartão de débito",
+    "data_vencimento": "2026-10-07",
+    "condicao": "À vista"
+  }
+}

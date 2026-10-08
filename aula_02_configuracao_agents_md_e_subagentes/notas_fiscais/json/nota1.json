@@ -1,0 +1,32 @@
+{
+  "arquivo": "nota1.jpeg",
+  "fornecedor": {
+    "nome": "SUPRIMENTOS & CIA LTDA",
+    "cnpj": "12.345.678/0001-99"
+  },
+  "nota": {
+    "numero": "000.124.852",
+    "serie": "001",
+    "data_emissao": "2026-10-07",
+    "hora_emissao": "14:32:00",
+    "chave_acesso": "3526 1012 3456 7800 0199 6500 1000 1248 5219 8765 4321"
+  },
+  "destinatario": {
+    "nome": "JOÃO DA SILVA ALVES",
+    "cpf_cnpj": "123.456.789-00"
+  },
+  "valores": {
+    "produtos": 149.00,
+    "servicos": 120.00,
+    "frete": 18.00,
+    "desconto": 15.00,
+    "impostos": 26.82,
+    "tributos_estimados": 38.50,
+    "total": 272.00
+  },
+  "pagamento": {
+    "forma": "Cartão de crédito Visa (1x)",
+    "data_vencimento": "2026-10-07",
+    "condicao": "À vista"
+  }
+}

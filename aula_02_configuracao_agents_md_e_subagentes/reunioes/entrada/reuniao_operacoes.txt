@@ -1,0 +1,71 @@
+Reunião: Operações e Logística
+Data: 14/09/2026
+Participantes: Carlos Mendes, Mariana Lopes, Roberto Nunes, Fernanda Silva
+
+Carlos: Bom dia. O principal ponto hoje é o aumento dos atrasos nas entregas da região Sul. Nas últimas três semanas, o prazo médio subiu de quatro para sete dias.
+
+Mariana: Eu revisei os dados ontem. O problema está concentrado na transportadora TransVale. Eles estão com dificuldade principalmente nas entregas para o interior do Paraná e de Santa Catarina.
+
+Carlos: Nós já tínhamos dado um prazo para normalização?
+
+Mariana: Sim. Na reunião do mês passado combinamos que acompanharíamos o desempenho até setembro. Eles melhoraram na primeira semana, mas voltaram a piorar.
+
+Roberto: Existe multa contratual?
+
+Mariana: Existe previsão de penalidade quando o SLA mensal fica abaixo de 92%. Em agosto eles fecharam em 87%.
+
+Carlos: Então acho que já temos elementos suficientes. Minha proposta é retirar as rotas do Paraná da TransVale e passar para a Expresso Sul a partir de outubro.
+
+Fernanda: A Expresso Sul tem capacidade para assumir tudo?
+
+Mariana: Para o Paraná, sim. Para Santa Catarina ainda não confirmei.
+
+Carlos: Certo. Então fica decidido transferir as rotas do Paraná para a Expresso Sul a partir de 1º de outubro.
+
+Mariana: Eu consigo comunicar as duas transportadoras até sexta-feira, dia 18 de setembro.
+
+Roberto: Precisamos entender o impacto financeiro antes de transferir também Santa Catarina.
+
+Mariana: Vou levantar os custos, mas ainda não consigo dar um prazo. Preciso falar com o fornecedor.
+
+Carlos: Tudo bem. Santa Catarina continua com a TransVale por enquanto.
+
+Fernanda: Outro ponto: o estoque do centro de distribuição de Campinas está próximo do limite.
+
+Carlos: Qual o percentual?
+
+Fernanda: Ontem estava em 94% da capacidade.
+
+Roberto: Há previsão de normalização?
+
+Fernanda: Não ainda. A campanha promocional aumentou muito a entrada de mercadoria.
+
+Carlos: Podemos utilizar temporariamente o galpão B?
+
+Fernanda: Tecnicamente sim, mas precisamos confirmar se a licença do espaço permite armazenar esses produtos.
+
+Carlos: Quem verifica isso?
+
+Fernanda: Vou consultar o jurídico.
+
+Carlos: Ótimo. Vamos deixar o uso do galpão B como opção, condicionado ao posicionamento jurídico.
+
+Roberto: Também precisamos cuidar dos custos extras de armazenagem. Não quero que isso seja contratado sem aprovação.
+
+Carlos: Concordo. Nenhuma contratação adicional será feita sem uma estimativa de custos aprovada pelo financeiro.
+
+Mariana: Tenho mais um ponto. Poderíamos testar um turno noturno no centro de distribuição durante outubro.
+
+Carlos: Acho interessante, mas precisamos primeiro estimar custo e impacto operacional.
+
+Fernanda: Posso fazer uma estimativa preliminar junto com RH.
+
+Carlos: Perfeito. Não estamos aprovando o turno noturno agora. Apenas vamos avaliar a possibilidade.
+
+Carlos: Para fechar: Paraná passa para Expresso Sul em outubro; Mariana comunica as transportadoras até dia 18. Santa Catarina permanece como está até termos os custos. Fernanda verifica a licença do galpão B com o jurídico. E Fernanda também avalia com RH o custo de um possível turno noturno.
+
+Roberto: Certo.
+
+Mariana: Combinado.
+
+Fernanda: Por mim, fechado.

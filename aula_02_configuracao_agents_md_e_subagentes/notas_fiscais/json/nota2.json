@@ -1,0 +1,33 @@
+{
+  "arquivo": "nota2.jpeg",
+  "fornecedor": {
+    "nome": "DISTRIBUIDORA VALE DO RIO LTDA",
+    "cnpj": "98.765.432/0001-10"
+  },
+  "nota": {
+    "numero": "000.345.912",
+    "serie": "004",
+    "data_emissao": "2026-10-07",
+    "hora_emissao": "15:10:22",
+    "chave_acesso": "3326 1098 7654 3210 0001 1065 0040 0034 5912 1876 5432"
+  },
+  "destinatario": {
+    "nome": "MARIANA SOUZA OLIVEIRA",
+    "cpf_cnpj": "987.654.321-09"
+  },
+  "valores": {
+    "produtos": 97.80,
+    "servicos": 45.00,
+    "frete": 12.00,
+    "desconto": 5.00,
+    "impostos": 14.80,
+    "tributos_estimados": 21.50,
+    "total": 149.80
+  },
+  "pagamento": {
+    "forma": "PIX",
+    "data_vencimento": "2026-10-07",
+    "condicao": "À vista"
+  },
+  "observacao": "Parte dos campos da nota está encoberta na imagem; os dados registrados estavam legíveis."
+}
