@@ -1,0 +1,19 @@
+{
+  "versao": "2026.1",
+  "moeda": "BRL",
+  "refeicao_individual_max": 85.0,
+  "refeicao_cliente_max": 200.0,
+  "bebida_alcoolica_permitida": false,
+  "tetos_hospedagem": {
+    "Sao Paulo": 350.0,
+    "Rio de Janeiro": 320.0,
+    "Brasilia": 320.0,
+    "Curitiba": 260.0,
+    "Belo Horizonte": 260.0,
+    "Porto Alegre": 260.0,
+    "Salvador": 240.0,
+    "Fortaleza": 240.0,
+    "Recife": 240.0,
+    "Outras Cidades": 220.0
+  }
+}

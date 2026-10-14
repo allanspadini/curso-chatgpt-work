@@ -23,6 +23,12 @@ AULAS_CONFIG = {
         "port": 8790,
         "total_slides": 20,
     },
+    "3": {
+        "folder": "aula_03_skills_e_delegacao_estruturada",
+        "pdf_name": "aula_03_apresentacao.pdf",
+        "port": 8791,
+        "total_slides": 16,
+    },
 }
 
 def export_aula(aula_key):
@@ -119,7 +125,7 @@ def export_aula(aula_key):
             shutil.rmtree(temp_dir, ignore_errors=True)
 
 def main():
-    target = "2"
+    target = "3"
     if len(sys.argv) > 1:
         arg = sys.argv[1].replace("aula_", "").replace("aula", "").strip()
         if arg in AULAS_CONFIG:

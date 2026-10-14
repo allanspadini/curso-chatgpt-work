@@ -51,6 +51,26 @@ Toda a abordagem pedagógica adota rigorosamente a metodologia **Situação-Prob
 
 ---
 
+### [Aula 03: Engenharia de Skills, Contexto Durável e Delegação Estruturada](./aula_03_skills_e_delegacao_estruturada/)
+- **Status:** Disponível
+- **Apresentação Interativa:** [Acessar Slides da Aula 3](https://allanspadini.github.io/curso-chatgpt-work/aula_03_skills_e_delegacao_estruturada/)
+- **Download do PDF:** [Baixar aula_03_apresentacao.pdf](https://allanspadini.github.io/curso-chatgpt-work/aula_03_skills_e_delegacao_estruturada/aula_03_apresentacao.pdf)
+- **Guia Prático Passo a Passo:** [Acessar Guia de Rubricas](./aula_03_skills_e_delegacao_estruturada/pratica_guiada_rubricas.md)
+- **Tópicos Abordados:**
+  1. *Prática Guiada de Mercado & Fontes Conectadas* (Triagem e auditoria de propostas comerciais de fornecedores em PDF; teste comparativo de resposta no Chat sem fonte vs. com fonte oficial aprovada).
+  2. *Mapeamento do Fluxo e Contrato Agêntico no AGENTS.md* (Pipeline de compras em 5 fases: Gatilho, Fontes, Transformações, Saída e Aprovações Humanas; contrato com Resultado, Contexto e Restrições operacionais).
+  3. *Especificação de Trabalho & Revisão em 4 Camadas* (Work Specification e auditoria de Decisão, Fatos/Números, Completude e Formato).
+  4. *Operação no ChatGPT Work Local & Riscos de Apps* (Configuração de Project como ambiente de contexto durável; execução de delegação orientada a desfechos com critérios de aceite; análise de risco de permissões de escrita).
+  5. *Alinhamento Integral com o Projeto da Disciplina* (Cobertura de 100% das 8 primeiras rubricas avaliativas).
+
+#### 📦 Materiais Práticos da Aula 03 (Downloads em .zip)
+| Recurso Prático | Descrição | Link de Download (.zip) |
+| :--- | :--- | :--- |
+| 📄 **Propostas de Fornecedores** | 3 PDFs de propostas comerciais (Alpha, Beta, Delta) para auditoria orçamentária | 📥 [Baixar propostas_fornecedores.zip](https://github.com/allanspadini/curso-chatgpt-work/raw/main/aula_03_skills_e_delegacao_estruturada/propostas_fornecedores.zip) |
+| ⚡ **Skill Auditoria de Reembolsos** | Pacote completo de engenharia de Skills: relatórios PDF (João Silva e Maria Santos), SKILL.md, scripts Python determinísticos e templates | 📥 [Baixar pratica_skill_reembolsos.zip](https://github.com/allanspadini/curso-chatgpt-work/raw/main/aula_03_skills_e_delegacao_estruturada/pratica_skill_reembolsos.zip) |
+
+---
+
 ## 🛠️ Tecnologias e Arquitetura
 
 - **Frontend das Apresentações:** React 18, Vite, KaTeX (renderização matemática) e Lucide React.

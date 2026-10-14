@@ -55,9 +55,32 @@ for (const zipFile of zipFiles) {
   fs.copySync(path.join(aula02Root, zipFile), path.join(destAula02, zipFile));
   console.log(`📦 Recurso prático copiado: ${zipFile} -> dist/aula_02_configuracao_agents_md_e_subagentes/${zipFile}`);
 }
-console.log('✅ Apresentação e recursos da Aula 02 copiados para dist/aula_02_configuracao_agents_md_e_subagentes/');
+// 6. Build da Apresentação da Aula 03
+const aula03Dir = path.join(ROOT_DIR, 'aula_03_skills_e_delegacao_estruturada', 'apresentacao');
+console.log('📦 Compilando apresentação da Aula 03 (React + Vite)...');
+execSync('npm run build', { cwd: aula03Dir, stdio: 'inherit' });
 
-// 6. Copiar arquivos raiz para dist/
+// 7. Copiar dist da Aula 03 para dist/aula_03_skills_e_delegacao_estruturada
+const aula03Dist = path.join(aula03Dir, 'dist');
+const destAula03 = path.join(DIST_DIR, 'aula_03_skills_e_delegacao_estruturada');
+fs.copySync(aula03Dist, destAula03);
+
+const pdfPath03 = path.join(ROOT_DIR, 'aula_03_skills_e_delegacao_estruturada', 'aula_03_apresentacao.pdf');
+if (fs.existsSync(pdfPath03)) {
+  fs.copySync(pdfPath03, path.join(destAula03, 'aula_03_apresentacao.pdf'));
+  console.log('✅ PDF da Aula 03 copiado para dist/aula_03_skills_e_delegacao_estruturada/aula_03_apresentacao.pdf');
+}
+console.log('✅ Apresentação da Aula 03 copiada para dist/aula_03_skills_e_delegacao_estruturada/');
+
+// Copiar arquivos .zip de recursos práticos da Aula 03
+const aula03Root = path.join(ROOT_DIR, 'aula_03_skills_e_delegacao_estruturada');
+const zipFiles03 = fs.readdirSync(aula03Root).filter(file => file.endsWith('.zip'));
+for (const zipFile of zipFiles03) {
+  fs.copySync(path.join(aula03Root, zipFile), path.join(destAula03, zipFile));
+  console.log(`📦 Recurso prático copiado: ${zipFile} -> dist/aula_03_skills_e_delegacao_estruturada/${zipFile}`);
+}
+
+// 8. Copiar arquivos raiz para dist/
 fs.copySync(path.join(ROOT_DIR, 'index.html'), path.join(DIST_DIR, 'index.html'));
 if (fs.existsSync(path.join(ROOT_DIR, 'infnet_logo.png'))) {
   fs.copySync(path.join(ROOT_DIR, 'infnet_logo.png'), path.join(DIST_DIR, 'infnet_logo.png'));
