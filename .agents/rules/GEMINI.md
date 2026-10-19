@@ -23,170 +23,27 @@ Todo conceito, módulo arquitetural ou técnica deve ser introduzido seguindo ri
 
 ---
 
-### 🧠 Profundidade Conceitual vs Abstração Visual dos Slides
-
-Para manter a apresentação dinâmica e o conteúdo denso:
-- **Slides (Visual Puro & Sem Poluição)**: O slide deve conter **apenas diagramas amplos, gráficos e fluxos visuais limpos**. Não utilize blocos de texto explicativos, parágrafos ou listas de justificativas nos slides.
-- **Falas do Apresentador (`falas_apresentador.md` e `notes` no `slidesData.js`) & Notebooks (`.ipynb`) (Profundidade Máxima)**: Todo o aprofundamento conceitual, analogias intuitivas, rastreamento passo a passo de tensores, diferenciações cruciais (ex: treino paralelo via *Teacher Forcing* vs inferência autorregressiva token a token, papéis das matrizes $Q, K, V$, mecânica de backpropagation) devem estar **completamente detalhados nas falas do professor**. Nunca seja superficial nas falas!
-
----
-
 ### 📁 Estrutura Obrigatória de Cada Aula (`aula_XX_<nome_da_aula>/`)
 
 Cada aula deve ficar em uma pasta dedicada contendo a seguinte estrutura de arquivos:
 - `apresentacao/` (Aplicação React + Vite com os slides interativos)
-- `falas_apresentador.md` (Roteiro de narração slide por slide para o professor)
+- `falas_apresentador.md` (Roteiro de narração slide por slide para o professor, com profundidade máxima)
 - `plano_aula.md` (Plano pedagógico da aula detalhando objetivos, blocos e competências)
-- outros - podem surgir outros arquivos conforme a necessidade
+- outros — podem surgir outros arquivos (como notebooks `.ipynb` ou exemplos práticos) conforme a necessidade
+
+**Sincronia Total de Documentos**: Sempre que um slide for adicionado, removido ou alterado, sincronize simultaneamente `slidesData`, `falas_apresentador.md` e `plano_aula.md`.
 
 ---
 
-### 💻 Padrão para Apresentações em React (`apresentacao/`)
+### 💻 Padrão para Apresentações (`apresentacao/`) — Skill `infnet-presentations`
 
-Para a criação de apresentações, utilizaremos o framework **React** com **Vite**, seguindo estritamente a identidade visual do `Template de Slides para Aulas.odp` / `.pdf` localizado na raiz do projeto.
+Para criar, estruturar, editar, revisar ou exportar apresentações de slides na pasta `apresentacao/`, **utilize obrigatoriamente a skill `infnet-presentations`**.
 
-#### 1. Tecnologias & Dependências
-- **React + Vite SPA** (`package.json`, `index.html`, `vite.config.js`).
-- **KaTeX** (`katex`): Renderização de expressões matemáticas em LaTeX.
-- **Lucide React** (`lucide-react`): Ícones modernos para interface.
-- **Vanilla CSS / CSS Tokens**: Definição no `src/index.css` (evitar Tailwind a menos que solicitado).
+A skill `infnet-presentations` já define todas as regras de arquitetura React + Vite, identidade visual e paleta de cores da Infnet (tema 100% claro), viewport 16:9 (`1366x768`), atalhos de navegação, construção progressiva de gráficos/diagramas passo a passo, baixa densidade de texto nos slides e espelhamento integral das explicações detalhadas nas falas do apresentador (`notes` e `falas_apresentador.md`).
 
-#### 2. Estrutura de Componentes & Arquivos
-```
-apresentacao/
-├── public/
-│   ├── infnet_logo.png
-│   └── (imagens da apresentação)
-└── src/
-    ├── main.jsx
-    ├── index.css (tokens de cores, fontes, viewport 16:9 e animações)
-    ├── App.jsx (gerenciamento de estado, atalhos de teclado e navegação)
-    ├── data/
-    │   └── slidesData.js (matriz central com todos os slides e propriedades)
-    ├── components/
-    │   ├── Header.jsx (Onda SVG cyan superior, logo da Infnet, título e subtítulo)
-    │   ├── Footer.jsx (Nome do curso/instituição, atalhos, contador Slide X/Y)
-    │   ├── Controls.jsx (Botões Anterior/Próximo e Autoplay)
-    │   ├── NotesDrawer.jsx (Drawer lateral com falas do autor - atalho 'N')
-    │   ├── OverviewModal.jsx (Grid visual com miniaturas de todos os slides - atalho 'G')
-    │   ├── MathView.jsx (Renderizador de KaTeX inline e block)
-    │   ├── visual/ (Diagramas SVG arquiteturais, anatômicos e matemáticos)
-    │   └── interactive/ (Simuladores interativos com estados, sliders e tabelas)
-    └── utils/
-        └── assetHelper.js (Tratamento de caminhos de imagens)
-```
-
-#### 3. Identidade Visual & Design System (`index.css`)
-- **Cores Oficiais Infnet**:
-  - Dark Blue / Branding: `--infnet-dark-blue` (`#0A345D`)
-  - Deep Navy / Fundo App: `--infnet-navy-deep` (`#061F38`)
-  - Cyan Accent / Detalhes: `--infnet-cyan` (`#1BB5D8`) e `--infnet-cyan-light` (`#64D9EF`)
-  - Green Accent / Destaques: `--infnet-green-accent` (`#7CB342`)
-  - Orange / Alertas: `--infnet-orange` (`#FF7043`)
-  - Purple / Variáveis: `--infnet-purple` (`#AB47BC`)
-- **Tipografia**:
-  - Títulos: Google Fonts `'Outfit'`, sans-serif.
-  - Corpo / Textos: Google Fonts `'Inter'`, sans-serif.
-  - Código / Matemática: Google Fonts `'Fira Code'`, monospace.
-- **Design de Alto Contraste & Fundo Claro Canônico (Obrigatório)**:
-  - **Fundo Canônico Branco (`#FFFFFF`)**: O slide (`.slide-body`) é renderizado sobre fundo branco limpo.
-  - **Proibição Estrita de Contêineres Escuros / Dark Mode**: NUNCA utilize cartões escuros com opacidade (`rgba(6, 31, 56, ...)`, `#0F172A`, `#0B132B`, `#020617` ou `rgba(10, 52, 93, 0.5)`) como contêineres principais dos slides. Eles geram contraste insuficiente, aspecto turvo e ilegibilidade severa.
-  - **Padrão de Cores para Cards e Banners**:
-    - **Banner Superior**: `background: '#EDF5FA'`, `border: '1px solid #D0E3F0'`, títulos em `var(--infnet-dark-blue)` (`#0A345D`), subtítulos em `#475569` ou `#0369A1`.
-    - **Cards Principais**: `background: '#FFFFFF'`, borda `1px solid var(--border-light)` (`#D5E3EC`), sombra `boxShadow: 'var(--shadow-sm)'`.
-    - **Blocos Internos / Sub-cards**: `background: '#F8FAFC'`, borda `1px solid #E2E8F0`.
-    - **Alertas / Estados Semânticos**:
-      - Sucesso/Ótimo: `background: '#F0FDF4'`, borda `1px solid #86EFAC'`, texto `#166534`.
-      - Perigo/Alerta Crítico: `background: '#FEF2F2'`, borda `1px solid #FCA5A5'`, texto `#991B1B`.
-      - Atenção/Aviso: `background: '#FFF7ED'`, borda `1px solid #FDBA74'`, texto `#9A3412` ou `#C2410C`.
-      - Informativo: `background: '#EFF6FF'`, borda `1px solid #93C5FD'`, texto `#1E40AF`.
-  - **Tipografia e Contraste de Texto**:
-    - Títulos e Destaques: `var(--infnet-dark-blue)` (`#0A345D`) ou `#0F172A`.
-    - Corpo de Texto Principal: `#1E293B` ou `#334155`.
-    - Rótulos Auxiliares: `#475569` ou `#64748B`.
-    - **Zero Texto Desbotado**: NUNCA use cores claras como `#94A3B8`, `#CBD5E1` ou `#E2E8F0` para texto ou fórmulas sobre fundo branco ou claro.
-  - **Contraste Rigoroso em KaTeX / Fórmulas Matemáticas**:
-    - O KaTeX herda a cor do elemento pai. Garanta sempre que o contêiner de KaTeX possua cor escura legível (`var(--infnet-dark-blue)` ou `#0F172A`). Nunca renderize KaTeX sobre caixas escuras sem estilização explícita, evitando que a fórmula herde preto sobre fundo escuro.
-  - **Botões e Elementos Interativos**:
-    - Ativo / Selecionado: fundo com leve tonalidade (`#EFF6FF` ou `#F0FDF4`), borda nítida de 2px (`var(--infnet-cyan)` ou verde) e texto escuro de alto contraste (`#0369A1` ou `#15803D`).
-    - Inativo: `background: '#F8FAFC'`, borda `1px solid #CBD5E1'`, texto `#475569`.
-- **Viewport dos Slides e Auto-scaler Responsivo (Obrigatório)**:
-  - **Dimensão Canônica 16:9**: A moldura lógica interna do slide deve ser estritamente de **1366 × 768px** (`.slide-scaler`), com `transform-origin: center center`.
-  - **Prevenção de Slides Achatados / Pequenos**:
-    - **Nunca** deixar o contêiner do slide sem dimensionamento explícito ou flex-shrink padrão: `.slide-scaler` DEVE conter obrigatoriamente:
-      ```css
-      .slide-scaler {
-        width: 1366px;
-        height: 768px;
-        min-width: 1366px;
-        min-height: 768px;
-        max-width: 1366px;
-        max-height: 768px;
-        flex-shrink: 0;
-        transform-origin: center center;
-        position: relative;
-        overflow: hidden;
-      }
-      ```
-    - O contêiner externo (`.presentation-container`) DEVE ocupar `width: 100vw; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center;`.
-  - **Mecanismo de Auto-scaler Obrigatório no `App.jsx`**:
-    - Gerenciar o estado `scale` com `useState(1)` e `containerRef`.
-    - Implementar a função `updateScale` com recálculo nos eventos `resize` e `fullscreenchange`:
-      ```javascript
-      const updateScale = useCallback(() => {
-        if (!containerRef.current) return;
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const isFullscreenActive = !!document.fullscreenElement;
-        const paddingX = isFullscreenActive ? 0 : 20;
-        const paddingY = isFullscreenActive ? 0 : 20;
-
-        const scaleX = (windowWidth - paddingX) / 1366;
-        const scaleY = (windowHeight - paddingY) / 768;
-        // Escalar proporcionalmente sem travas artificiais baixas (permitindo expansão em 1080p, 1440p e 4K)
-        const newScale = Math.min(scaleX, scaleY);
-        setScale(Math.max(0.35, newScale));
-      }, []);
-      ```
-    - **Atenção**: **NUNCA usar tetos artificiais arbitrários como `Math.min(..., 1.25)`**, pois isso impede que a apresentação se expanda em monitores 1080p (scale ~1.38×) e 1440p (scale ~1.85×), tornando os slides minúsculos e cercados por bordas pretas gigantes.
-  - **Posicionamento de Controles e Modais**:
-    - `<div className="slide-scaler" style={{ transform: `scale(${scale})` }}>` engloba `<Header>`, `<main className="slide-body">`, `<Footer>` e `<NotesDrawer>`.
-    - `<Controls>` (barra flutuante) e `<OverviewModal>` (modal de grade) devem ficar **fora** do `.slide-scaler`, diretamente no `.presentation-container`.
-    - Garantir que `<NotesDrawer>` receba `currentSlide={currentSlideIndex}` e `slide={currentSlide}` para exibição imediata com o atalho `N`.
-  - **Suporte a Fullscreen puro no navegador via tecla `F`**: Ao entrar em tela cheia, `padding` é zerado para cobrir 100% da resolução física do display sem barras pretas.
-
-#### 4. Recursos & Atalhos de Navegação
-- `Seta Direita` / `Espaço` / `PageDown`: Próximo slide.
-- `Seta Esquerda` / `PageUp`: Slide anterior.
-- `Home` / `End`: Ir para o primeiro / último slide.
-- `N`: Abrir/Fechar Gaveta de Falas do Apresentador (`NotesDrawer`).
-- `G`: Abrir/Fechar Visão Geral / Grid de Slides (`OverviewModal`).
-- `F`: Alternar modo Tela Cheia (Fullscreen).
-
-#### 5. Formato dos Dados dos Slides (`slidesData.js`)
-Cada slide no arquivo `slidesData.js` deve possuir:
-- `id`: Número sequencial do slide.
-- `type`: Tipo de layout (`title`, `instructor`, `roadmap`, `comparison`, `flow`, `image-text`, `formula`, `custom`, `quiz`, `card-grid`, `interactive`, `visual-component`).
-- `title` e `subtitle`: Título e subtítulo do slide.
-- `notes`: Texto com a fala completa do apresentador para o slide (deve ser **estritamente idêntico** ao arquivo `falas_apresentador.md`).
-- Propriedades específicas do tipo (`steps`, `cardLeft`/`cardRight`, `component`, `formula`, `variables`, `quizQuestions`).
-
-#### 6. Diretrizes para Visualizações & Componentes
-- **Foco Visual Absoluto nos Slides**: Os slides devem ser primariamente visuais. **Não coloque blocos de texto explicativos, parágrafos ou listas longas nos slides**. Todo o aprofundamento teórico, justificativas conceituais e detalhes devem residir nas **falas do apresentador** (`falas_apresentador.md` e `notes` no `slidesData.js`).
-- **Diagramas e Figuras em Destaque**: Quando um slide apresentar uma arquitetura ou diagrama técnico, a figura/SVG deve ocupar a área principal do slide em tamanho amplo e legível, sem ser comprimida por cards laterais de texto.
-- **Evitar Animações 3D Pesadas/Genéricas**: Em vez de WebGL/Three.js excessivo, priorizar diagramas vetoriais SVG claros, tabelas arquiteturais estruturadas (Camada, Tipo, Tamanho de Entrada, Kernel/Stride, Tamanho de Saída, Parâmetros) e fluxo em cascata.
-- **Divisão Didática de Arquiteturas Complexas**:
-  1. *Slide 1*: A Anatomia do Bloco Construtivo Isolado (ex: Módulo Inception, BasicBlock Residual, Patch Attention).
-  2. *Slide 2*: A Macro-Arquitetura Completa de ponta a ponta (como os blocos se empilham com Stem, Pooling e Classificador).
-- **Tabelas de Modelos com Métricas Reais**: Em tabelas de modelos pré-treinados (ex: Tabela 12-3 do TorchVision), incluir dados fiéis (Top-1, Top-5, Parâmetros, GFLOPs) e filtros rápidos por porte/categoria com inspetor de código PyTorch.
-- **Componentes Interativos**: Cada aula deve conter de 3 a 5 laboratórios interativos em React (simuladores de parâmetros, seletor de trade-offs, visualizadores de tensores e quiz final).
-
-#### 7. Diretrizes de Qualidade e Sincronização
-- **Zero Poluição Visual / Baixíssima densidade de texto por slide**: Prefira rótulos visuais, badges de dimensões e ícones discretos integrados ao próprio diagrama.
-- **Vários slides por aula**: Divida o conteúdo em 18 a 25 slides por apresentação.
-- **Sem slide de síntese/resumo final**: Não é necessário ter um slide de síntese da aula no encerramento; a aula pode concluir diretamente com o Quiz Interativo de Fixação ou no último conteúdo prático.
-- **Sincronia Total de Documentos**: Sempre que um slide for adicionado, removido ou alterado, sincronize simultaneamente: `slidesData.js`, `falas_apresentador.md` e `plano_aula.md`.
-- **Verificação Visual**: Sempre rode `npm run build` para garantir integridade e 0 erros de compilação.
+Complementos específicos para as aulas desta disciplina:
+- Divida o conteúdo em cerca de **18 a 25 slides** por apresentação, incluindo de **3 a 5 componentes/simuladores interativos** e encerrando diretamente no Quiz Interativo de Fixação ou último conteúdo prático (sem slide genérico de síntese final).
+- Todo o aprofundamento conceitual da metodologia **Problema ➔ Solução ➔ Teoria** deve estar completamente detalhado nas falas do professor (`falas_apresentador.md` / `notes`).
 
 ---
 

@@ -29,6 +29,12 @@ AULAS_CONFIG = {
         "port": 8791,
         "total_slides": 16,
     },
+    "4": {
+        "folder": "aula_04_plugins_conectores_e_computer_use",
+        "pdf_name": "aula_04_apresentacao.pdf",
+        "port": 8792,
+        "total_slides": 20,
+    },
 }
 
 def export_aula(aula_key):

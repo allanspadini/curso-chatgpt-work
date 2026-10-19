@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relatório Técnico-Executivo Infnet — Engenharia de Skills [REL-INFNET-2026-SKL]</title>
+  <!-- Google Fonts Oficiais Infnet: Outfit, Inter e Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Paleta Oficial Faculdade Infnet — TEMA 100% CLARO (Proibido Fundos Escuros) */
+      --infnet-bg-page: #F8FAFC;
+      --infnet-bg-card: #FFFFFF;
+      --infnet-bg-subtle: #F1F5F9;
+      --infnet-border: #CBD5E1;
+      --infnet-border-light: #E2E8F0;
+
+      --infnet-dark-blue: #0A345D;
+      --infnet-blue-accent: #0E4E8A;
+      --infnet-cyan: #1BB5D8;
+      --infnet-cyan-dark: #0284C7;
+      --infnet-green-accent: #7CB342;
+      --infnet-green-dark: #2E7D32;
+      --infnet-orange: #FF7043;
+      --infnet-orange-dark: #D84315;
+      --infnet-purple: #AB47BC;
+      --infnet-purple-dark: #7E22CE;
+
+      --text-primary: #1E293B;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--infnet-bg-page);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+
+    .report-sheet {
+      max-width: 1080px;
+      margin: 0 auto;
+      background-color: var(--infnet-bg-card);
+      border: 1px solid var(--infnet-border);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(10, 52, 93, 0.06);
+      overflow: hidden;
+    }
+
+    /* Elemento 01: Header Institucional com Onda SVG Cyan */
+    .report-header {
+      position: relative;
+      background-color: #FFFFFF;
+      border-bottom: 2px solid var(--infnet-border-light);
+      padding: 44px 40px 28px;
+    }
+
+    .header-wave-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 28px;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-titles h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--infnet-dark-blue);
+      line-height: 1.2;
+    }
+
+    .brand-titles p {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--infnet-blue-accent);
+      margin-top: 4px;
+    }
+
+    .protocol-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #EFF6FF;
+      color: var(--infnet-dark-blue);
+      border: 1.5px solid var(--infnet-cyan);
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+
+    /* Elemento 02: Meta Bar */
+    .meta-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background-color: var(--infnet-bg-subtle);
+      padding: 14px 40px;
+      border-bottom: 1px solid var(--infnet-border-light);
+    }
+
+    .meta-item {
+      background: #FFFFFF;
+      border: 1px solid var(--infnet-border-light);
+      border-radius: 8px;
+      padding: 8px 12px;
+    }
+
+    .meta-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .meta-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--infnet-dark-blue);
+      margin-top: 2px;
+    }
+
+    /* Conteúdo Principal */
+    .report-body {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-block {
+      background: #FFFFFF;
+      border: 1px solid var(--infnet-border-light);
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #F1F5F9;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--infnet-dark-blue);
+    }
+
+    .element-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--infnet-cyan-dark);
+      background: #EFF6FF;
+      border: 1px solid #BAE6FD;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* Elemento 03: TL;DR 3 Pílulas */
+    .tldr-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .tldr-pill {
+      background: #F8FAFC;
+      border: 1px solid var(--infnet-border);
+      border-top: 4px solid var(--infnet-cyan);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .tldr-pill h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      color: var(--infnet-dark-blue);
+      margin-bottom: 6px;
+    }
+
+    .tldr-pill p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* Elemento 04: Tríade RET (Problema -> Solução -> Teoria) */
+    .ret-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .ret-card {
+      border-radius: 10px;
+      padding: 18px;
+      border: 1px solid var(--infnet-border-light);
+    }
+
+    .ret-card.problema {
+      background: #FFF7ED;
+      border-left: 5px solid var(--infnet-orange);
+    }
+
+    .ret-card.solucao {
+      background: #EFF6FF;
+      border-left: 5px solid var(--infnet-cyan);
+    }
+
+    .ret-card.teoria {
+      background: #FAF5FF;
+      border-left: 5px solid var(--infnet-purple);
+    }
+
+    .ret-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--infnet-dark-blue);
+    }
+
+    .formula-box {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      background: #FFFFFF;
+      border: 1px solid #E9D5FF;
+      color: var(--infnet-purple-dark);
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+
+    /* Tabelas Padrão Infnet */
+    table.infnet-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    table.infnet-table th {
+      background-color: #EFF6FF;
+      color: var(--infnet-dark-blue);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--infnet-cyan);
+    }
+
+    table.infnet-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--infnet-border-light);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    table.infnet-table tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    table.infnet-table tr.summary-row td {
+      background-color: #F0FDF4;
+      font-weight: 700;
+      color: var(--infnet-green-dark);
+      border-top: 2px solid var(--infnet-green-accent);
+    }
+
+    /* Blocos de Código e Árvore (Fira Code em Fundo Claro) */
+    .code-light-box {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.84rem;
+      background-color: #F8FAFC;
+      color: var(--infnet-dark-blue);
+      border: 1px solid var(--infnet-border);
+      border-left: 4px solid var(--infnet-blue-accent);
+      border-radius: 8px;
+      padding: 16px;
+      white-space: pre-wrap;
+      margin-top: 10px;
+    }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* Escada de Divulgação Progressiva */
+    .levels-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .level-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #F8FAFC;
+      border: 1px solid var(--infnet-border-light);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .level-badge {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      background: var(--infnet-dark-blue);
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* Regra 85/15 */
+    .rule-85-box {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-top: 4px solid var(--infnet-green-accent);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .rule-15-box {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-top: 4px solid var(--infnet-dark-blue);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    /* Anti-Padrões e Callout Regras de Ouro */
+    .antipattern-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .antipattern-item {
+      background: #FFF7ED;
+      border: 1px solid #FED7AA;
+      border-left: 4px solid var(--infnet-orange);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+    }
+
+    .golden-rules-callout {
+      background: #F0FDF4;
+      border: 1.5px solid var(--infnet-green-accent);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    /* Homologação e Rodapé */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .check-card {
+      background: #F8FAFC;
+      border: 1px solid var(--infnet-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--infnet-dark-blue);
+    }
+
+    .report-footer {
+      background: #F1F5F9;
+      border-top: 1px solid var(--infnet-border);
+      padding: 20px 40px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF;
+        padding: 0;
+      }
+      .report-sheet {
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="report-sheet">
+    <!-- [HEADER-INFNET] Elemento 01 -->
+    <header class="report-header" data-element="HEADER-INFNET">
+      <svg class="header-wave-svg" viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 0H1440V24C1200 40 960 8 720 24C480 40 240 12 0 28V0Z" fill="#1BB5D8" />
+        <path d="M0 0H1440V14C1180 28 920 4 660 16C400 28 180 8 0 18V0Z" fill="#0E4E8A" fill-opacity="0.65" />
+      </svg>
+      <div class="header-top-row">
+        <div class="brand-box">
+          <img src="./infnet_logo.png" alt="Logo Instituto Infnet" class="brand-logo" />
+          <div class="brand-titles">
+            <h1>RELATÓRIO TÉCNICO-EXECUTIVO: ENGENHARIA DE SKILLS</h1>
+            <p>Instituto Infnet • Pós-Graduação em IA &amp; Engenharia de Software • Disciplina [26E4_2]</p>
+          </div>
+        </div>
+        <div class="protocol-badge">PROTOCOLO: REL-INFNET-2026-SKL</div>
+      </div>
+    </header>
+
+    <!-- [META-BAR] Elemento 02 -->
+    <section class="meta-bar" data-element="META-BAR">
+      <div class="meta-item">
+        <div class="meta-label">Autor / Responsável</div>
+        <div class="meta-value">{{NOME_AUTOR}}</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Data de Emissão</div>
+        <div class="meta-value">{{DATA_EMISSAO}}</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Classificação</div>
+        <div class="meta-value">TÉCNICO-EXECUTIVO</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Padrão Visual</div>
+        <div class="meta-value">TEMA 100% CLARO</div>
+      </div>
+    </section>
+
+    <div class="report-body">
+
+      <!-- [TLDR-3-PILULAS] Elemento 03 -->
+      <section class="section-block" data-element="TLDR-3-PILULAS">
+        <div class="section-header">
+          <h2>1. Resumo Executivo em 3 Pílulas (TL;DR)</h2>
+          <span class="element-tag">[TLDR-3-PILULAS]</span>
+        </div>
+        <div class="tldr-grid">
+          <div class="tldr-pill">
+            <h3>🎯 Dor Operacional</h3>
+            <p>{{PILULA_DOR_MAX_25_PALAVRAS}}</p>
+          </div>
+          <div class="tldr-pill">
+            <h3>🛠️ Arquitetura da Solução</h3>
+            <p>{{PILULA_SOLUCAO_MAX_25_PALAVRAS}}</p>
+          </div>
+          <div class="tldr-pill">
+            <h3>📈 Impacto Auditado</h3>
+            <p>{{PILULA_IMPACTO_MAX_25_PALAVRAS}}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- [TRIADE-RET] Elemento 04 -->
+      <section class="section-block" data-element="TRIADE-RET">
+        <div class="section-header">
+          <h2>2. Tríade Pedagógica Infnet: Problema ➔ Solução ➔ Teoria</h2>
+          <span class="element-tag">[TRIADE-RET]</span>
+        </div>
+        <div class="ret-grid">
+          <div class="ret-card problema">
+            <h3>1. Situação-Problema do Mundo Real</h3>
+            <p>{{TEXTO_SITUACAO_PROBLEMA_MUNDO_REAL}}</p>
+          </div>
+          <div class="ret-card solucao">
+            <h3>2. Solução de Engenharia</h3>
+            <p>{{TEXTO_SOLUCAO_ENGENHARIA}}</p>
+          </div>
+          <div class="ret-card teoria">
+            <h3>3. Teoria e Formalismo Rigoroso</h3>
+            <div class="formula-box">C = &lt;Outcome, Context, Constraints, Acceptance Criteria&gt;</div>
+            <p>{{TEXTO_TEORIA_E_FORMALISMO}}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- [TABELA-AUTONOMIA] Elemento 05 -->
+      <section class="section-block" data-element="TABELA-AUTONOMIA">
+        <div class="section-header">
+          <h2>3. Escala Formal de Autonomia e o Agent Loop</h2>
+          <span class="element-tag">[TABELA-AUTONOMIA]</span>
+        </div>
+        <table class="infnet-table">
+          <thead>
+            <tr>
+              <th>Nível / Paradigma</th>
+              <th>Horizonte de Execução</th>
+              <th>Estado e Uso de Ferramentas</th>
+              <th>Papel do Humano</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Prompt Engineering</strong></td>
+              <td>{{PROMPT_ENG_HORIZONTE}}</td>
+              <td>{{PROMPT_ENG_ESTADO}}</td>
+              <td>{{PROMPT_ENG_HUMANO}}</td>
+            </tr>
+            <tr>
+              <td><strong>2. Tool Calling</strong></td>
+              <td>{{TOOL_CALL_HORIZONTE}}</td>
+              <td>{{TOOL_CALL_ESTADO}}</td>
+              <td>{{TOOL_CALL_HUMANO}}</td>
+            </tr>
+            <tr>
+              <td><strong>3. Agente de Trabalho com Skills</strong></td>
+              <td>{{AGENTE_SKILL_HORIZONTE}}</td>
+              <td>{{AGENTE_SKILL_ESTADO}}</td>
+              <td>{{AGENTE_SKILL_HUMANO}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- [ANATOMIA-SKILL] Elemento 06 -->
+      <section class="section-block" data-element="ANATOMIA-SKILL">
+        <div class="section-header">
+          <h2>4. Anatomia Física da Skill e Frontmatter YAML</h2>
+          <span class="element-tag">[ANATOMIA-SKILL]</span>
+        </div>
+        <div class="two-col-grid">
+          <div>
+            <h3>4.1. Árvore Canônica de Diretórios</h3>
+            <pre class="code-light-box">{{ARVORE_DIRETORIOS_SKILL}}</pre>
+          </div>
+          <div>
+            <h3>4.2. Cabeçalho de Ativação Semântica (YAML)</h3>
+            <pre class="code-light-box">---
+name: {{EXEMPLO_NAME_SKILL}}
+description: &gt;-
+  {{EXEMPLO_DESCRIPTION_ATIVACAO}}
+---</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- [DIVULGACAO-3-NIVEIS] Elemento 07 -->
+      <section class="section-block" data-element="DIVULGACAO-3-NIVEIS">
+        <div class="section-header">
+          <h2>5. Escada de Divulgação Progressiva em 3 Níveis</h2>
+          <span class="element-tag">[DIVULGACAO-3-NIVEIS]</span>
+        </div>
+        <div class="levels-stack">
+          <div class="level-item">
+            <span class="level-badge">NÍVEL 1 • CATÁLOGO YAML</span>
+            <div>{{EXPLICACAO_NIVEL_1}}</div>
+          </div>
+          <div class="level-item">
+            <span class="level-badge">NÍVEL 2 • CORPO SKILL.MD</span>
+            <div>{{EXPLICACAO_NIVEL_2}}</div>
+          </div>
+          <div class="level-item">
+            <span class="level-badge">NÍVEL 3 • SOB DEMANDA</span>
+            <div>{{EXPLICACAO_NIVEL_3}}</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- [MATRIZ-85-15] Elemento 08 -->
+      <section class="section-block" data-element="MATRIZ-85-15">
+        <div class="section-header">
+          <h2>6. Calibração de Governança pela Regra 85/15</h2>
+          <span class="element-tag">[MATRIZ-85-15]</span>
+        </div>
+        <div class="two-col-grid">
+          <div class="rule-85-box">
+            <h3>🟢 85% — Execução Mecânica e Determinística (Agente + Scripts)</h3>
+            <p>{{ITENS_85_AUTOMACAO}}</p>
+          </div>
+          <div class="rule-15-box">
+            <h3>🔷 15% — Julgamento Crítico e Portão Humano (HITL)</h3>
+            <p>{{ITENS_15_JULGAMENTO_HUMANO}}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- [CASCA-VS-NUCLEO] Elemento 09 -->
+      <section class="section-block" data-element="CASCA-VS-NUCLEO">
+        <div class="section-header">
+          <h2>7. Casca Determinística vs. Núcleo Dinâmico e Analogia do VisiCalc</h2>
+          <span class="element-tag">[CASCA-VS-NUCLEO]</span>
+        </div>
+        <p style="margin-bottom: 14px;"><strong>Compressão da Costura (A ➔ C) e Analogia do VisiCalc:</strong> {{EXPLICACAO_VISICALC_E_COSTURA}}</p>
+        <div class="two-col-grid">
+          <div class="ret-card solucao">
+            <h3>🛡️ Casca Determinística (Deterministic Shell)</h3>
+            <p>{{EXPLICACAO_CASCA_DETERMINISTICA}}</p>
+          </div>
+          <div class="ret-card teoria">
+            <h3>🧠 Núcleo Dinâmico (Dynamic Core)</h3>
+            <p>{{EXPLICACAO_NUCLEO_DINAMICO}}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- [ANTI-PADROES-5] Elemento 10 -->
+      <section class="section-block" data-element="ANTI-PADROES-5">
+        <div class="section-header">
+          <h2>8. Galeria dos 5 Grandes Anti-Padrões e Regras de Ouro</h2>
+          <span class="element-tag">[ANTI-PADROES-5]</span>
+        </div>
+        <div class="antipattern-list">
+          <div class="antipattern-item"><strong>1. A Mega-Skill Monolítica:</strong> {{DESC_ANTIPADRAO_1}}</div>
+          <div class="antipattern-item"><strong>2. Reporting Slop:</strong> {{DESC_ANTIPADRAO_2}}</div>
+          <div class="antipattern-item"><strong>3. Lavagem de Intuição por Score de IA:</strong> {{DESC_ANTIPADRAO_3}}</div>
+          <div class="antipattern-item"><strong>4. A Armadilha do Copiar-Colar (Shadow Skills):</strong> {{DESC_ANTIPADRAO_4}}</div>
+          <div class="antipattern-item"><strong>5. Risco de Segurança de Skills de Estranhos:</strong> {{DESC_ANTIPADRAO_5}}</div>
+        </div>
+        <div class="golden-rules-callout">
+          <p><strong>💡 Regra de Ouro 1 ("Corrija a Skill, Não a Saída"):</strong> {{REGRA_OURO_CORRIJA_SKILL}}</p>
+          <p style="margin-top: 6px;"><strong>💡 Regra de Ouro 2 ("Don't Average Your Experts" / Red-Teaming):</strong> {{REGRA_OURO_RED_TEAMING}}</p>
+        </div>
+      </section>
+
+      <!-- [TABELA-METRICAS] Elemento 11 -->
+      <section class="section-block" data-element="TABELA-METRICAS">
+        <div class="section-header">
+          <h2>9. Indicadores Quantitativos Auditados (Benchmark Interno Infnet)</h2>
+          <span class="element-tag">[TABELA-METRICAS]</span>
+        </div>
+        <table class="infnet-table">
+          <thead>
+            <tr>
+              <th>Setor / Departamento</th>
+              <th>Tempo Manual</th>
+              <th>Tempo c/ Skill</th>
+              <th>Redução Tempo</th>
+              <th>Tokens s/ Divulgação</th>
+              <th>Tokens c/ 3 Níveis</th>
+              <th>Economia Tokens</th>
+              <th>Conformidade (Antes ➔ Depois)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Controladoria &amp; Auditoria</strong></td>
+              <td>{{T_MAN_1}} min</td>
+              <td>{{T_SKL_1}} min</td>
+              <td>{{RED_T_1}}%</td>
+              <td>{{TOK_ANTES_1}}</td>
+              <td>{{TOK_DEPOIS_1}}</td>
+              <td>{{ECO_TOK_1}}%</td>
+              <td>{{CONF_1}}</td>
+            </tr>
+            <tr>
+              <td><strong>Compras &amp; Suprimentos TI</strong></td>
+              <td>{{T_MAN_2}} min</td>
+              <td>{{T_SKL_2}} min</td>
+              <td>{{RED_T_2}}%</td>
+              <td>{{TOK_ANTES_2}}</td>
+              <td>{{TOK_DEPOIS_2}}</td>
+              <td>{{ECO_TOK_2}}%</td>
+              <td>{{CONF_2}}</td>
+            </tr>
+            <tr>
+              <td><strong>Coordenação Acadêmica</strong></td>
+              <td>{{T_MAN_3}} min</td>
+              <td>{{T_SKL_3}} min</td>
+              <td>{{RED_T_3}}%</td>
+              <td>{{TOK_ANTES_3}}</td>
+              <td>{{TOK_DEPOIS_3}}</td>
+              <td>{{ECO_TOK_3}}%</td>
+              <td>{{CONF_3}}</td>
+            </tr>
+            <tr>
+              <td><strong>Engenharia &amp; DevSecOps</strong></td>
+              <td>{{T_MAN_4}} min</td>
+              <td>{{T_SKL_4}} min</td>
+              <td>{{RED_T_4}}%</td>
+              <td>{{TOK_ANTES_4}}</td>
+              <td>{{TOK_DEPOIS_4}}</td>
+              <td>{{ECO_TOK_4}}%</td>
+              <td>{{CONF_4}}</td>
+            </tr>
+            <tr class="summary-row">
+              <td><strong>MÉDIA / CONSOLIDADO INFNET</strong></td>
+              <td>{{T_MAN_MED}} min</td>
+              <td>{{T_SKL_MED}} min</td>
+              <td>{{RED_T_MED}}%</td>
+              <td>{{TOK_ANTES_MED}}</td>
+              <td>{{TOK_DEPOIS_MED}}</td>
+              <td>{{ECO_TOK_MED}}%</td>
+              <td>{{CONF_MED}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- [HOMOLOGACAO-4-CAMADAS] Elemento 12 -->
+      <section class="section-block" data-element="HOMOLOGACAO-4-CAMADAS">
+        <div class="section-header">
+          <h2>10. Checklist de Homologação em 4 Camadas (Portão Humano HITL)</h2>
+          <span class="element-tag">[HOMOLOGACAO-4-CAMADAS]</span>
+        </div>
+        <div class="checklist-grid">
+          <div class="check-card">✅ Camada 1 — Decisão Executiva e Ausência de Reporting Slop</div>
+          <div class="check-card">✅ Camada 2 — Fatos e Métricas Auditadas via Script Python</div>
+          <div class="check-card">✅ Camada 3 — Completude Estrutural (12/12 Elementos Obrigatórios)</div>
+          <div class="check-card">✅ Camada 4 — Conformidade Visual Infnet (Tema 100% Claro)</div>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary);">
+          <strong>Status da Auditoria Determinística:</strong> <code>{{STATUS_VALIDADOR}}</code>
+        </p>
+      </section>
+
+    </div>
+
+    <footer class="report-footer">
+      <div>
+        <strong>Fontes Autoritativas:</strong> <code>especificacao_identidade_e_estrutura_infnet.md</code> • <code>insumo_teorico_skills_aula03.md</code> • <code>dados_benchmark_skills_infnet.json</code>
+      </div>
+      <div>
+        <strong>Instituto Infnet • Pós-Graduação [26E4_2]</strong> — Homologado por: ___________________________
+      </div>
+    </footer>
+  </main>
+
+</body>
+</html>

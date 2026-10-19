@@ -80,7 +80,32 @@ for (const zipFile of zipFiles03) {
   console.log(`📦 Recurso prático copiado: ${zipFile} -> dist/aula_03_skills_e_delegacao_estruturada/${zipFile}`);
 }
 
-// 8. Copiar arquivos raiz para dist/
+// 8. Build da Apresentação da Aula 04
+const aula04Dir = path.join(ROOT_DIR, 'aula_04_plugins_conectores_e_computer_use', 'apresentacao');
+console.log('📦 Compilando apresentação da Aula 04 (React + Vite)...');
+execSync('npm run build', { cwd: aula04Dir, stdio: 'inherit' });
+
+// 9. Copiar dist da Aula 04 para dist/aula_04_plugins_conectores_e_computer_use
+const aula04Dist = path.join(aula04Dir, 'dist');
+const destAula04 = path.join(DIST_DIR, 'aula_04_plugins_conectores_e_computer_use');
+fs.copySync(aula04Dist, destAula04);
+
+const pdfPath04 = path.join(ROOT_DIR, 'aula_04_plugins_conectores_e_computer_use', 'aula_04_apresentacao.pdf');
+if (fs.existsSync(pdfPath04)) {
+  fs.copySync(pdfPath04, path.join(destAula04, 'aula_04_apresentacao.pdf'));
+  console.log('✅ PDF da Aula 04 copiado para dist/aula_04_plugins_conectores_e_computer_use/aula_04_apresentacao.pdf');
+}
+console.log('✅ Apresentação da Aula 04 copiada para dist/aula_04_plugins_conectores_e_computer_use/');
+
+// Copiar arquivos .zip e falas do apresentador da Aula 04
+const aula04Root = path.join(ROOT_DIR, 'aula_04_plugins_conectores_e_computer_use');
+const zipFiles04 = fs.readdirSync(aula04Root).filter(file => file.endsWith('.zip') || file.startsWith('falas_apresentador'));
+for (const file04 of zipFiles04) {
+  fs.copySync(path.join(aula04Root, file04), path.join(destAula04, file04));
+  console.log(`📦 Recurso copiado: ${file04} -> dist/aula_04_plugins_conectores_e_computer_use/${file04}`);
+}
+
+// 10. Copiar arquivos raiz para dist/
 fs.copySync(path.join(ROOT_DIR, 'index.html'), path.join(DIST_DIR, 'index.html'));
 if (fs.existsSync(path.join(ROOT_DIR, 'infnet_logo.png'))) {
   fs.copySync(path.join(ROOT_DIR, 'infnet_logo.png'), path.join(DIST_DIR, 'infnet_logo.png'));

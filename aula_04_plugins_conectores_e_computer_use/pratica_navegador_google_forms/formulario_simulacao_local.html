@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homologação de Workflows Agênticos — Instituto Infnet (Formulário Web)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-forms: #F0F4F8;
+      --card-bg: #FFFFFF;
+      --infnet-blue: #0A345D;
+      --infnet-cyan: #1BB5D8;
+      --border-color: #DADCE0;
+      --text-main: #202124;
+      --text-sub: #5F6368;
+      --danger: #D93025;
+      --success: #1E8E3E;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-forms);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      padding: 28px 16px 60px;
+      line-height: 1.5;
+    }
+
+    .form-container {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-card {
+      border-top: 10px solid var(--infnet-blue);
+    }
+
+    .header-card h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.65rem;
+      color: var(--infnet-blue);
+      margin-bottom: 8px;
+    }
+
+    .header-card p {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+    }
+
+    .required-note {
+      font-size: 0.82rem;
+      color: var(--danger);
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    .field-label {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .field-label span.req {
+      color: var(--danger);
+      margin-left: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 1.5px solid #9AA0A6;
+      padding: 8px 4px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background: transparent;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-bottom: 2px solid var(--infnet-blue);
+      background-color: #F8FAFC;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.93rem;
+      cursor: pointer;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--infnet-blue);
+      cursor: pointer;
+    }
+
+    .actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .btn-submit {
+      background-color: var(--infnet-blue);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      padding: 11px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #0E4E8A;
+    }
+
+    .btn-clear {
+      background: transparent;
+      border: none;
+      color: var(--infnet-blue);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 8px 12px;
+    }
+
+    .success-banner {
+      display: none;
+      background: #E6F4EA;
+      border: 1.5px solid var(--success);
+      color: #137333;
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-weight: 600;
+    }
+
+    .submissions-panel {
+      margin-top: 24px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+
+    .submissions-panel h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      color: var(--infnet-blue);
+      margin-bottom: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    th, td {
+      border: 1px solid #E2E8F0;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #F8FAFC;
+      color: var(--infnet-blue);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <div class="form-card header-card">
+      <h1>Homologação de Workflows Agênticos — Instituto Infnet [26E4_2]</h1>
+      <p>Formulário oficial para registro e governança de processos automatizados com ChatGPT Work (Prática de Automação de Navegador via CSV — Aula 04).</p>
+      <div class="required-note">* Indica uma pergunta obrigatória</div>
+    </div>
+
+    <div id="successBanner" class="success-banner">
+      ✅ Sua resposta foi registrada com sucesso! Confira o registro na tabela de auditoria ao final da página.
+    </div>
+
+    <form id="workflowForm">
+      <!-- 1. Código do Projeto -->
+      <div class="form-card" style="margin-bottom: 14px;">
+        <label class="field-label" for="codigo_projeto">1. Código do Projeto <span class="req">*</span></label>
+        <input type="text" id="codigo_projeto" name="codigo_projeto" placeholder="Ex: WF-2026-001" required />
+      </div>
+
+      <!-- 2. Nome do Responsável -->
+      <div class="form-card" style="margin-bottom: 14px;">
+        <label class="field-label" for="nome_responsavel">2. Nome do Responsável <span class="req">*</span></label>
+        <input type="text" id="nome_responsavel" name="nome_responsavel" placeholder="Sua resposta" required />
+      </div>
+
+      <!-- 3. E-mail Institucional -->
+      <div class="form-card" style="margin-bottom: 14px;">
+        <label class="field-label" for="email_contato">3. E-mail Institucional <span class="req">*</span></label>
+        <input type="email" id="email_contato" name="email_contato" placeholder="nome@infnet-corp.com.br" required />
+      </div>
+
+      <!-- 4. Departamento -->
+      <div class="form-card" style="margin-bottom: 14px;">
+        <span class="field-label">4. Departamento <span class="req">*</span></span>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="departamento" value="Financeiro" required /> Financeiro</label>
+          <label class="radio-option"><input type="radio" name="departamento" value="Recursos Humanos" /> Recursos Humanos</label>
+          <label class="radio-option"><input type="radio" name="departamento" value="Operações" /> Operações</label>
+          <label class="radio-option"><input type="radio" name="departamento" value="Engenharia de TI" /> Engenharia de TI</label>
+          <label class="radio-option"><input type="radio" name="departamento" value="Comercial" /> Comercial</label>
+        </div>
+      </div>
+
+      <!-- 5. Superfície de Controle -->
+      <div class="form-card" style="margin-bottom: 14px;">
+        <span class="field-label">5. Superfície de Controle Principal <span class="req">*</span></span>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="superficie_controle" value="Conector Estruturado (Plugin)" required /> Conector Estruturado (Plugin)</label>
+          <label class="radio-option"><input type="radio" name="superficie_controle" value="Navegador (@Chrome)" /> Navegador (@Chrome)</label>
+          <label class="radio-option"><input type="radio" name="superficie_controle" value="Desktop (@Computer)" /> Desktop (@Computer)</label>
+        </div>
+      </div>
+
+      <!-- 6. Política de Aprovação -->
+      <div class="form-card" style="margin-bottom: 14px;">
+        <span class="field-label">6. Política de Aprovação (Governança) <span class="req">*</span></span>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="politica_aprovacao" value="Somente Leitura (Read-Only)" required /> Somente Leitura (Read-Only)</label>
+          <label class="radio-option"><input type="radio" name="politica_aprovacao" value="Rascunho Encenado (Staged Artifact)" /> Rascunho Encenado (Staged Artifact)</label>
+          <label class="radio-option"><input type="radio" name="politica_aprovacao" value="Aprovação Humana Antes do Envio (HITL)" /> Aprovação Humana Antes do Envio (HITL)</label>
+        </div>
+      </div>
+
+      <!-- 7. Resumo Técnico do Workflow -->
+      <div class="form-card" style="margin-bottom: 14px;">
+        <label class="field-label" for="resumo_workflow">7. Resumo Técnico do Workflow <span class="req">*</span></label>
+        <textarea id="resumo_workflow" name="resumo_workflow" rows="3" placeholder="Descreva o objetivo e os limites do workflow..." required></textarea>
+      </div>
+
+      <div class="actions-row">
+        <button type="submit" class="btn-submit" id="btnEnviar">Enviar</button>
+        <button type="reset" class="btn-clear">Limpar formulário</button>
+      </div>
+    </form>
+
+    <!-- Painel de Auditoria de Respostas Enviadas -->
+    <div class="submissions-panel">
+      <h2>📊 Registros Recebidos nesta Sessão (<span id="countSub">0</span>)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Responsável</th>
+            <th>E-mail</th>
+            <th>Departamento</th>
+            <th>Superfície</th>
+            <th>Governança</th>
+          </tr>
+        </thead>
+        <tbody id="submissionsBody">
+          <tr id="emptyRow">
+            <td colspan="6" style="text-align: center; color: #64748B;">Nenhuma resposta enviada ainda.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('workflowForm');
+    const tbody = document.getElementById('submissionsBody');
+    const countSpan = document.getElementById('countSub');
+    const banner = document.getElementById('successBanner');
+    let count = 0;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      const emptyRow = document.getElementById('emptyRow');
+      if (emptyRow) emptyRow.remove();
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${data.get('codigo_projeto')}</strong></td>
+        <td>${data.get('nome_responsavel')}</td>
+        <td>${data.get('email_contato')}</td>
+        <td>${data.get('departamento')}</td>
+        <td>${data.get('superficie_controle')}</td>
+        <td>${data.get('politica_aprovacao')}</td>
+      `;
+      tbody.appendChild(tr);
+
+      count += 1;
+      countSpan.textContent = count;
+      banner.style.display = 'block';
+      form.reset();
+
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 4500);
+    });
+  </script>
+</body>
+</html>

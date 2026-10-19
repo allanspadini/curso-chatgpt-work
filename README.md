@@ -71,6 +71,19 @@ Toda a abordagem pedagógica adota rigorosamente a metodologia **Situação-Prob
 
 ---
 
+### [Aula 04: Plugins em Ação, Conectores Estruturados e Computer Use](./aula_04_plugins_conectores_e_computer_use/)
+- **Status:** Disponível
+- **Apresentação Interativa:** [Acessar Slides da Aula 4](https://allanspadini.github.io/curso-chatgpt-work/aula_04_plugins_conectores_e_computer_use/)
+- **Download do PDF:** [Baixar aula_04_apresentacao.pdf](https://allanspadini.github.io/curso-chatgpt-work/aula_04_plugins_conectores_e_computer_use/aula_04_apresentacao.pdf)
+- **Tópicos Abordados (Capítulo 8 — *Plugins in Action*):**
+  1. *De um Agente Geral a um Colega Equipado* (Tríade Conector vs. Skill vs. Plugin; defesa em 3 camadas: OAuth, RBAC nativo e Runtime; invocação implícita vs. `@mention`).
+  2. *Escolha da Superfície de Controle* (Plugin/Conector Estruturado vs. Computer Use; critérios de permissões, evidência e caminho de revisão; ciclo de vida em 7 pontos e independência das 5 camadas administrativas).
+  3. *Coordenação de Onboarding de Novos Colaboradores* (Exclusão rígida de PII/RH; separação entre fatos da fonte e itens de planejamento; encenação dos 3 artefatos revisáveis e defesa contra *Indirect Prompt Injection*: dados ≠ instruções).
+  4. *Gestão de Inbox Sem Ceder o Julgamento* (Classificação nos 4 grupos operacionais; preservação da voz via *Sent Mail*; checagem da última mensagem da thread; desagregação *Send ≠ Archive ≠ Delete* e agendamentos Cloud vs. Desktop).
+  5. *Computer Use (`@Computer` e `@Chrome`) & Padrão de Delegação em 6 Partes* (Permissões de SO *Screen Recording* e *Accessibility*; fronteiras entre *Signed-in Chrome*, *Built-in Browser* e *Cloud Browser*; semântica macOS PiP vs. Windows Foreground; e contrato universal em 6 partes alinhado às Rubricas 3.1 e 3.2).
+
+---
+
 ## 🛠️ Tecnologias e Arquitetura
 
 - **Frontend das Apresentações:** React 18, Vite, KaTeX (renderização matemática) e Lucide React.

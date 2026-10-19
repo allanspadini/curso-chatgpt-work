@@ -34,7 +34,7 @@ jobs:
       - name: Install Root Dependencies
         run: npm install
 
-      - name: Install Presentation Dependencies (Aula 01, Aula 02 & Aula 03)
+      - name: Install Presentation Dependencies (Aula 01, Aula 02, Aula 03 & Aula 04)
         run: |
           cd aula_01_fundamentos_e_processos_agenticos/apresentacao
           npm install
@@ -43,6 +43,9 @@ jobs:
           npm install
           cd ../..
           cd aula_03_skills_e_delegacao_estruturada/apresentacao
+          npm install
+          cd ../..
+          cd aula_04_plugins_conectores_e_computer_use/apresentacao
           npm install
           cd ../..
 
