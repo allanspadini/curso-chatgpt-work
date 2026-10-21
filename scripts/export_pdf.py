@@ -35,6 +35,12 @@ AULAS_CONFIG = {
         "port": 8792,
         "total_slides": 20,
     },
+    "5": {
+        "folder": "aula_05",
+        "pdf_name": "aula_05_apresentacao.pdf",
+        "port": 8793,
+        "total_slides": 15,
+    },
 }
 
 def export_aula(aula_key):

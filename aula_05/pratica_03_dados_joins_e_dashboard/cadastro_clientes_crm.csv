@@ -1,0 +1,8 @@
+crm_account_id,account_manager,contract_tier,onboarding_score,account_status
+CUST-101,Ana Beatriz,Platinum,94,Active
+CUST-102,Carlos Eduardo,Gold,88,Active
+CUST-103,Mariana Costa,Silver,79,Active
+CUST-104,Rafael Prado,Bronze,71,Active
+CUST-105,Ana Beatriz,Platinum,91,Active
+CUST-105,Juliana Martins,Platinum,91,Duplicate_Migration_Record
+CUST-108,Fernanda Lima,Gold,85,Active

@@ -1,0 +1,5 @@
+fornecedor_id,nome_fornecedor,custo_mensal_usd,precisao_ocr_pct,latencia_media_seg,conformidade_lgpd_score,observacoes_auditoria
+VEND-01,DocuMind Enterprise,1850.00,97.4,1.8,95,"Homologado em Nuvem Privada; suporta exportação nativa de JSON e trilhas de auditoria RBAC."
+VEND-02,FastScan AI Cloud,920.00,91.2,0.9,78,"Menor custo mensal, porém falhou em 14% dos recibos térmicos amassados no teste de estresse."
+VEND-03,GovShield OCR Pro,2400.00,98.8,,100,"Célula de latência em branco: fornecedor ainda não concluiu o benchmark de latência no cluster sul-americano (NÃO ZERAR!)."
+VEND-04,OpenParse Local,650.00,86.5,3.4,88,"Execução local sem custo por página, mas exige manutenção manual de templates por município."

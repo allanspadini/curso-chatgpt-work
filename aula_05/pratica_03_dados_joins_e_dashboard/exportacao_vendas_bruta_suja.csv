@@ -1,0 +1,9 @@
+row_id,customer_id,account_name,close_date,region,segment,revenue
+1,CUST-101,Northwind,2026-03-01,NA,Enterprise,"$1,250.00"
+2,cust-102 ,BluePeak,03/02/2026,North America,enterprise,"$900.00"
+3,CUST-103,Cascade,2026-03-04,EU,Mid-Market,
+3,CUST-103,Cascade,2026-03-04,EU,Mid-market,
+4,CUST-104,Solstice,2026-03-05,EMEA,SMB,"$475.50"
+5,CUST-105,AuroraTech,04/05/2026,NA,Enterprise,"$1,100.00"
+6,CUST-999,VanguardGhost,2026-03-10,NA,Mid-Market,"$620.00"
+TOTAL,,,,,Total,"$4,345.50"

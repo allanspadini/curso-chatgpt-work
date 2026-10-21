@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sites Private Dashboard — Revenue & Data Lineage (Capítulo 11 / Rubricas 3.5 e 3.6)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --infnet-blue: #0A345D;
+      --border: #CBD5E1;
+      --text: #0F172A;
+      --sub: #475569;
+      --amber: #D97706;
+      --amber-bg: #FFFBEB;
+      --green: #16A34A;
+      --green-bg: #F0FDF4;
+      --red: #DC2626;
+      --red-bg: #FEF2F2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      padding-bottom: 50px;
+    }
+    .header {
+      background: var(--infnet-blue);
+      color: #FFF;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 4px solid #38BDF8;
+    }
+    .header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+    }
+    .badge-private {
+      background: #FEF3C7;
+      color: #92400E;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .container {
+      max-width: 1220px;
+      margin: 22px auto;
+      padding: 0 20px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .kpi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .kpi-card h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--sub);
+      margin-bottom: 6px;
+    }
+    .kpi-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--infnet-blue);
+    }
+    .kpi-sub {
+      font-size: 0.82rem;
+      margin-top: 6px;
+      color: var(--sub);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .panel h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.08rem;
+      color: var(--infnet-blue);
+      margin-bottom: 12px;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    th, td {
+      padding: 9px 10px;
+      border-bottom: 1px solid #E2E8F0;
+      text-align: left;
+    }
+    th { background: #F1F5F9; font-weight: 700; color: var(--infnet-blue); }
+    .dq-box {
+      background: var(--amber-bg);
+      border: 1px solid #FDE68A;
+      border-left: 5px solid var(--amber);
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+    .gov-box {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-left: 5px solid #0284C7;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>📊 Infnet Executive Revenue & Join Audit Dashboard (Sites — Modelo de Referência Cap. 11)</h1>
+      <p style="font-size: 0.82rem; color: #BAE6FD;">Atualizado por: Scheduled Task do ChatGPT Work (Segundas-feiras às 07h30 BRT) | Fonte Bruta: Intocada (Somente Leitura)</p>
+    </div>
+    <span class="badge-private">🔒 VISIBILIDADE: RASCUNHO PRIVADO (Requer Aprovação Antes de Publicar)</span>
+  </header>
+
+  <main class="container">
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <h3>Receita Limpa Validada (6 Contas Únicas)</h3>
+        <div class="kpi-val">$4,345.50</div>
+        <div class="kpi-sub" style="color: var(--green); font-weight: 600;">
+          ▲ +$645.50 (+17.4%) vs. Mês Anterior ($3,700.00)
+        </div>
+        <div class="kpi-sub"><em>Exibe variação absoluta ($) e percentual (%) lado a lado</em></div>
+      </div>
+
+      <div class="kpi-card" style="border-left: 4px solid var(--amber);">
+        <h3>Receita Matched no CRM (Pós-Deduplicação)</h3>
+        <div class="kpi-val">$3,725.50</div>
+        <div class="kpi-sub"><strong>5 contas matched</strong> (1 registro com receita <code>NULL</code>: Cascade)</div>
+        <div class="kpi-sub" style="color: var(--amber);">Evitou inflação de +$1,100.00 da chave duplicada <code>CUST-105</code>!</div>
+      </div>
+
+      <div class="kpi-card" style="border-left: 4px solid var(--red);">
+        <h3>Registros Unmatched (Fora do CRM)</h3>
+        <div class="kpi-val" style="color: var(--red);">$620.00 (14,3%)</div>
+        <div class="kpi-sub"><strong>1 conta unmatched:</strong> <code>CUST-999 (VanguardGhost)</code></div>
+        <div class="kpi-sub">Mantido visível ao lado do resultado principal (Regra Cap. 11)</div>
+      </div>
+
+      <div class="kpi-card">
+        <h3>Frescor da Fonte (Source Freshness)</h3>
+        <div class="kpi-val" style="font-size: 1.25rem;">21/Out/2026 07:30</div>
+        <div class="kpi-sub">Grão Vendas: <strong>1 linha = 1 pedido fechado</strong></div>
+        <div class="kpi-sub">Grão CRM: <strong>1 linha = 1 conta ativa</strong></div>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="panel">
+        <h2>🔍 Tabela de Reconciliação Pós-Limpeza e Trial Join (`vendas_limpas` ⋈ `crm_dedup`)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Row ID</th>
+              <th>Chave Normalizada</th>
+              <th>Conta</th>
+              <th>Data ISO</th>
+              <th>Região</th>
+              <th>Receita</th>
+              <th>Status do Join CRM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><code>CUST-101</code></td>
+              <td>Northwind</td>
+              <td>2026-03-01</td>
+              <td>North America</td>
+              <td>$1,250.00</td>
+              <td style="color: var(--green); font-weight:600;">Matched (1:1)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><code>CUST-102</code></td>
+              <td>BluePeak</td>
+              <td>2026-03-02</td>
+              <td>North America</td>
+              <td>$900.00</td>
+              <td style="color: var(--green); font-weight:600;">Matched (após trim/upper)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><code>CUST-103</code></td>
+              <td>Cascade</td>
+              <td>2026-03-04</td>
+              <td>Europe</td>
+              <td><em>NULL (Blank ≠ $0)</em></td>
+              <td style="color: var(--amber); font-weight:600;">Matched (Receita Ausente)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><code>CUST-104</code></td>
+              <td>Solstice</td>
+              <td>2026-03-05</td>
+              <td>EMEA <em>(Flagged)</em></td>
+              <td>$475.50</td>
+              <td style="color: var(--green); font-weight:600;">Matched (1:1)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><code>CUST-105</code></td>
+              <td>AuroraTech</td>
+              <td><em>04/05/2026 (Ambígua)</em></td>
+              <td>North America</td>
+              <td>$1,100.00</td>
+              <td style="color: var(--amber); font-weight:600;">Multiply Matched (1:2 no CRM bruto!)</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><code>CUST-999</code></td>
+              <td>VanguardGhost</td>
+              <td>2026-03-10</td>
+              <td>North America</td>
+              <td>$620.00</td>
+              <td style="color: var(--red); font-weight:600;">Unmatched (Sem registro no CRM)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h2>⚠️ Área Visível de Qualidade de Dados (Data-Quality Note) & Governança</h2>
+        <div class="dq-box">
+          <strong>1. Linha TOTAL Removida & Soma Incompleta:</strong> A linha <code>TOTAL ($4,345.50)</code> foi separada da tabela analítica por violar o grão. Embora a soma das 5 linhas preenchidas dê <code>$4,345.50</code>, o total real é <strong>incompleto</strong> porque <code>CUST-103 (Cascade)</code> possui receita genuinamente em branco (preservada como <code>NULL</code>, nunca convertida em zero).
+        </div>
+        <div class="dq-box">
+          <strong>2. Prevenção de Inflação em Join (Multiply Matched):</strong> No arquivo bruto do CRM, <code>CUST-105</code> aparecia 2 vezes (registro ativo + registro órfão de migração). Um <code>LEFT JOIN</code> ingênuo duplicaria a linha da AuroraTech e inflaria a receita total em <strong>+$1,100.00</strong> (para $5,445.50).
+        </div>
+        <div class="gov-box">
+          <strong>3. Governança do Dashboard Agendado (Rubrica 3.6):</strong><br>
+          • <strong>Motor de Atualização:</strong> Scheduled Task do ChatGPT Work (Dono: Analista Líder de Operações).<br>
+          • <strong>Regra de Alerta:</strong> Dispara notificação apenas se a receita unmatched superar 5% ou surgir nova chave duplicada; mantém silêncio caso contrário.<br>
+          • <strong>Portão de Publicação no Sites:</strong> Qualquer alteração de visibilidade (de <em>Privado</em> para <em>Workspace</em>) exige exibir a configuração atual, a lista de destinatários e o link para aprovação humana prévia.
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

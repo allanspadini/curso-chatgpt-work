@@ -84,6 +84,17 @@ Toda a abordagem pedagógica adota rigorosamente a metodologia **Situação-Prob
 
 ---
 
+### [Aula 05: Artefatos de Decisão, Chief of Staff e Workflows de Dados Confiáveis](./aula_05/)
+- **Status:** Disponível
+- **Apresentação Interativa:** [Acessar Slides da Aula 5](https://allanspadini.github.io/curso-chatgpt-work/aula_05/)
+- **Download do PDF:** [Baixar aula_05_apresentacao.pdf](https://allanspadini.github.io/curso-chatgpt-work/aula_05/aula_05_apresentacao.pdf)
+- **Tópicos Abordados (Capítulos 9, 10 e 11):**
+  1. *Capítulo 9 — Documentos, Planilhas e Apresentações* (Entregáveis como produtos com propósito; arquitetura de conteúdo antes do polimento; planilhas como modelos executáveis em 4 camadas; sequência *Investigate, Narrate, Generate, Review* e o processo em 3 passagens *Plan, Build, Verify* — Rubrica 3.3).
+  2. *Capítulo 10 — Produtividade e Colaboração* (*Work Chief of Staff* com mapa de fontes intencional; briefing decisório em 7 blocos orientado a ação; *Meaningful-Change Threshold* com 7 gatilhos e silêncio operacional; aprovações granulares, delegação focada de projetos e handoffs de equipe — Rubrica 3.4).
+  3. *Capítulo 11 — Workflows de Dados Confiáveis* (Os 4 estágios; proteção da fonte bruta e grão da tabela; limpeza sistemática em cópia separada com *Data-Quality Note*; validação de joins e registros *unmatched*; exploração vs. causalidade; relatórios rastreáveis, dashboards privados no Sites, escolha entre ChatGPT Work e Codex e checklist de 12 pontos — Rubricas 3.5 e 3.6).
+
+---
+
 ## 🛠️ Tecnologias e Arquitetura
 
 - **Frontend das Apresentações:** React 18, Vite, KaTeX (renderização matemática) e Lucide React.

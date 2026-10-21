@@ -105,6 +105,37 @@ for (const file04 of zipFiles04) {
   console.log(`📦 Recurso copiado: ${file04} -> dist/aula_04_plugins_conectores_e_computer_use/${file04}`);
 }
 
+// 10. Build da Apresentação da Aula 05
+const aula05Dir = path.join(ROOT_DIR, 'aula_05', 'apresentacao');
+if (fs.existsSync(aula05Dir)) {
+  console.log('📦 Compilando apresentação da Aula 05 (React + Vite)...');
+  execSync('npm run build', { cwd: aula05Dir, stdio: 'inherit' });
+
+  const aula05Dist = path.join(aula05Dir, 'dist');
+  const destAula05 = path.join(DIST_DIR, 'aula_05');
+  fs.copySync(aula05Dist, destAula05);
+
+  const pdfPath05 = path.join(ROOT_DIR, 'aula_05', 'aula_05_apresentacao.pdf');
+  if (fs.existsSync(pdfPath05)) {
+    fs.copySync(pdfPath05, path.join(destAula05, 'aula_05_apresentacao.pdf'));
+    console.log('✅ PDF da Aula 05 copiado para dist/aula_05/aula_05_apresentacao.pdf');
+  }
+
+  const aula05Root = path.join(ROOT_DIR, 'aula_05');
+  const extraFiles05 = fs.readdirSync(aula05Root).filter(
+    file =>
+      file.endsWith('.zip') ||
+      file.startsWith('falas_apresentador') ||
+      file.startsWith('pratica_') ||
+      file === 'ROTEIRO_GERAL_PRATICAS_AULA_05.md'
+  );
+  for (const file05 of extraFiles05) {
+    fs.copySync(path.join(aula05Root, file05), path.join(destAula05, file05));
+    console.log(`📦 Recurso copiado: ${file05} -> dist/aula_05/${file05}`);
+  }
+  console.log('✅ Apresentação e práticas da Aula 05 copiadas para dist/aula_05/');
+}
+
 // 10. Copiar arquivos raiz para dist/
 fs.copySync(path.join(ROOT_DIR, 'index.html'), path.join(DIST_DIR, 'index.html'));
 if (fs.existsSync(path.join(ROOT_DIR, 'infnet_logo.png'))) {
