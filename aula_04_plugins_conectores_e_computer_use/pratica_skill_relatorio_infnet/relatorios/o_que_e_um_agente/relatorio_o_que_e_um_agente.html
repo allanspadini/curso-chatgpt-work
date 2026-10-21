@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O que é um agente de IA? — Relatório Infnet</title>
+  <!-- Google Fonts Oficiais Infnet: Outfit, Inter e Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Paleta Oficial Faculdade Infnet — TEMA 100% CLARO (Proibido Fundos Escuros) */
+      --infnet-bg-page: #F8FAFC;
+      --infnet-bg-card: #FFFFFF;
+      --infnet-bg-subtle: #F1F5F9;
+      --infnet-border: #CBD5E1;
+      --infnet-border-light: #E2E8F0;
+
+      --infnet-dark-blue: #0A345D;
+      --infnet-blue-accent: #0E4E8A;
+      --infnet-cyan: #1BB5D8;
+      --infnet-cyan-dark: #0284C7;
+      --infnet-green-accent: #7CB342;
+      --infnet-green-dark: #2E7D32;
+      --infnet-orange: #FF7043;
+      --infnet-orange-dark: #D84315;
+      --infnet-purple: #AB47BC;
+      --infnet-purple-dark: #7E22CE;
+
+      --text-primary: #1E293B;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--infnet-bg-page);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+
+    .report-sheet {
+      max-width: 1080px;
+      margin: 0 auto;
+      background-color: var(--infnet-bg-card);
+      border: 1px solid var(--infnet-border);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(10, 52, 93, 0.06);
+      overflow: hidden;
+    }
+
+    /* Elemento 01: Header Institucional com Onda SVG Cyan */
+    .report-header {
+      position: relative;
+      background-color: #FFFFFF;
+      border-bottom: 2px solid var(--infnet-border-light);
+      padding: 44px 40px 28px;
+    }
+
+    .header-wave-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 28px;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-titles h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--infnet-dark-blue);
+      line-height: 1.2;
+    }
+
+    .brand-titles p {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--infnet-blue-accent);
+      margin-top: 4px;
+    }
+
+    .protocol-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #EFF6FF;
+      color: var(--infnet-dark-blue);
+      border: 1.5px solid var(--infnet-cyan);
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+
+    /* Elemento 02: Meta Bar */
+    .meta-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background-color: var(--infnet-bg-subtle);
+      padding: 14px 40px;
+      border-bottom: 1px solid var(--infnet-border-light);
+    }
+
+    .meta-item {
+      background: #FFFFFF;
+      border: 1px solid var(--infnet-border-light);
+      border-radius: 8px;
+      padding: 8px 12px;
+    }
+
+    .meta-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .meta-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--infnet-dark-blue);
+      margin-top: 2px;
+    }
+
+    /* Conteúdo Principal */
+    .report-body {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-block {
+      background: #FFFFFF;
+      border: 1px solid var(--infnet-border-light);
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #F1F5F9;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--infnet-dark-blue);
+    }
+
+    .element-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--infnet-cyan-dark);
+      background: #EFF6FF;
+      border: 1px solid #BAE6FD;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* Elemento 03: TL;DR 3 Pílulas */
+    .tldr-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .tldr-pill {
+      background: #F8FAFC;
+      border: 1px solid var(--infnet-border);
+      border-top: 4px solid var(--infnet-cyan);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .tldr-pill h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      color: var(--infnet-dark-blue);
+      margin-bottom: 6px;
+    }
+
+    .tldr-pill p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* Elemento 04: Tríade RET (Problema -> Solução -> Teoria) */
+    .ret-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .ret-card {
+      border-radius: 10px;
+      padding: 18px;
+      border: 1px solid var(--infnet-border-light);
+    }
+
+    .ret-card.problema {
+      background: #FFF7ED;
+      border-left: 5px solid var(--infnet-orange);
+    }
+
+    .ret-card.solucao {
+      background: #EFF6FF;
+      border-left: 5px solid var(--infnet-cyan);
+    }
+
+    .ret-card.teoria {
+      background: #FAF5FF;
+      border-left: 5px solid var(--infnet-purple);
+    }
+
+    .ret-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--infnet-dark-blue);
+    }
+
+    .formula-box {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      background: #FFFFFF;
+      border: 1px solid #E9D5FF;
+      color: var(--infnet-purple-dark);
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+
+    /* Tabelas Padrão Infnet */
+    table.infnet-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    table.infnet-table th {
+      background-color: #EFF6FF;
+      color: var(--infnet-dark-blue);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--infnet-cyan);
+    }
+
+    table.infnet-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--infnet-border-light);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    table.infnet-table tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    table.infnet-table tr.summary-row td {
+      background-color: #F0FDF4;
+      font-weight: 700;
+      color: var(--infnet-green-dark);
+      border-top: 2px solid var(--infnet-green-accent);
+    }
+
+    /* Blocos de Código e Árvore (Fira Code em Fundo Claro) */
+    .code-light-box {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.84rem;
+      background-color: #F8FAFC;
+      color: var(--infnet-dark-blue);
+      border: 1px solid var(--infnet-border);
+      border-left: 4px solid var(--infnet-blue-accent);
+      border-radius: 8px;
+      padding: 16px;
+      white-space: pre-wrap;
+      margin-top: 10px;
+    }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* Escada de Divulgação Progressiva */
+    .levels-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .level-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #F8FAFC;
+      border: 1px solid var(--infnet-border-light);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .level-badge {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      background: var(--infnet-dark-blue);
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* Regra 85/15 */
+    .rule-85-box {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-top: 4px solid var(--infnet-green-accent);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .rule-15-box {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-top: 4px solid var(--infnet-dark-blue);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    /* Anti-Padrões e Callout Regras de Ouro */
+    .antipattern-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .antipattern-item {
+      background: #FFF7ED;
+      border: 1px solid #FED7AA;
+      border-left: 4px solid var(--infnet-orange);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+    }
+
+    .golden-rules-callout {
+      background: #F0FDF4;
+      border: 1.5px solid var(--infnet-green-accent);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    /* Homologação e Rodapé */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .check-card {
+      background: #F8FAFC;
+      border: 1px solid var(--infnet-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--infnet-dark-blue);
+    }
+
+    .report-footer {
+      background: #F1F5F9;
+      border-top: 1px solid var(--infnet-border);
+      padding: 20px 40px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF;
+        padding: 0;
+      }
+      .report-sheet {
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+<style>
+.report-body h1{font-family:Outfit,sans-serif;color:#0A345D;font-size:2rem;line-height:1.2;margin:20px 0}
+.report-body h2{font-family:Outfit,sans-serif;color:#0A345D;margin:32px 0 14px;border-bottom:2px solid #1BB5D8;padding-bottom:8px}
+.report-body h3{margin:18px 0 8px;color:#0E4E8A}
+.report-body p,.report-body ul,.report-body ol{margin:12px 0}.report-body ul,.report-body ol{padding-left:24px}
+table{width:100%;border-collapse:collapse;font-size:.86rem;margin:18px 0}th,td{border:1px solid #CBD5E1;padding:10px;text-align:left;vertical-align:top}th{background:#EFF6FF;color:#0A345D}
+pre{background:#F1F5F9;border:1px solid #CBD5E1;padding:18px;overflow:auto;font-family:'Fira Code',monospace;font-size:.85rem}a{color:#0E4E8A}img{max-width:145px;height:auto}
+@media(max-width:700px){.report-body{padding:20px}table{display:block;overflow:auto}body{padding:0}.report-body h1{font-size:1.6rem}}
+@media print{h2,h3{break-after:avoid}tr{break-inside:avoid}}
+</style></head><body><main class="report-sheet"><header class="report-header"><svg class="header-wave-svg" viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 0H1440V24C1200 40 960 8 720 24C480 40 240 12 0 28V0Z" fill="#1BB5D8" />
+        <path d="M0 0H1440V14C1180 28 920 4 660 16C400 28 180 8 0 18V0Z" fill="#0E4E8A" fill-opacity="0.65" />
+      </svg><strong>RELATÓRIO TÉCNICO-EXECUTIVO • INFNET</strong></header><article class="report-body"><!-- [HEADER-INFNET] -->
+<p><img alt="Instituto Infnet" src="infnet_logo.png" /></p>
+<h1>O que é um agente de inteligência artificial?</h1>
+<p><strong>Instituto Infnet — Pós-Graduação em IA e Engenharia de Software</strong><br />
+<strong>Professor(a):</strong> Professor(a) não informado(a)<br />
+<strong>Disciplina:</strong> Disciplina não informada<br />
+<strong>Protocolo:</strong> Não informado</p>
+<!-- [META-BAR] -->
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Autor / Responsável</th>
+<th style="text-align: left;">Emissão</th>
+<th style="text-align: left;">Classificação</th>
+<th style="text-align: left;">Política visual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Não informado; elaboração assistida por IA</td>
+<td style="text-align: left;">19/10/2026</td>
+<td style="text-align: left;">TÉCNICO-EXECUTIVO</td>
+<td style="text-align: left;">TEMA 100% CLARO</td>
+</tr>
+</tbody>
+</table>
+<!-- [TLDR-3-PILULAS] -->
+<h2>1. Resumo executivo</h2>
+<ul>
+<li><strong>Dor operacional:</strong> Tarefas com várias etapas exigem interpretar informações, escolher ações e conferir resultados.</li>
+<li><strong>Solução:</strong> Um agente de IA conduz um ciclo de observação, decisão e ação orientado a um objetivo e limitado por instruções.</li>
+<li><strong>Impacto:</strong> Pode entregar trabalho verificável; este relatório não apresenta benchmark nem comprova ganhos quantitativos.</li>
+</ul>
+<!-- [TRIADE-RET] -->
+<h2>2. Problema → solução → teoria</h2>
+<h3>Situação-problema</h3>
+<p>Uma pessoa precisa preparar um relatório a partir de arquivos. Pedir um resumo resolve apenas parte do trabalho: ainda é necessário localizar documentos, conferir dados, organizar o texto e salvar a entrega.</p>
+<h3>Solução de engenharia</h3>
+<p>Um agente pode conduzir essas etapas, observar se os arquivos existem e ajustar o caminho diante de uma falha. Sua atuação depende das ferramentas e permissões disponíveis. O exemplo ilustra uma possibilidade de projeto; não descreve um experimento realizado.</p>
+<h3>Definição e formalismo</h3>
+<p>No contexto deste relatório, <strong>agente de IA é um sistema que usa um modelo para selecionar ações, executá-las e avaliar seus resultados em busca de um objetivo</strong>. A Anthropic distingue agentes, que decidem dinamicamente o percurso, de fluxos cujas etapas são predefinidas. Essa é uma convenção arquitetural útil; o termo “agente” admite definições diferentes. <a href="https://www.anthropic.com/engineering/building-effective-agents">Fonte 1</a>.</p>
+<p>Uma representação didática é <strong>observação → decisão → ação → nova observação</strong>. O objetivo e os limites podem ser explicitados pelo contrato <strong>C = ⟨Outcome, Context, Constraints, Acceptance Criteria⟩</strong>: resultado esperado, contexto, restrições e critérios de aceitação. Essa notação organiza o pedido; não constitui uma definição universal de agente.</p>
+<!-- [TABELA-AUTONOMIA] -->
+<h2>3. Conversa, automação e agente</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Abordagem</th>
+<th style="text-align: left;">Quem define o próximo passo?</th>
+<th style="text-align: left;">Estado durante a tarefa</th>
+<th style="text-align: left;">Ferramentas</th>
+<th style="text-align: left;">Papel humano</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Conversa simples</td>
+<td style="text-align: left;">Normalmente a pessoa</td>
+<td style="text-align: left;">Histórico disponível</td>
+<td style="text-align: left;">Podem existir</td>
+<td style="text-align: left;">Conduzir cada solicitação</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluxo predefinido</td>
+<td style="text-align: left;">Código ou regras do fluxo</td>
+<td style="text-align: left;">Variáveis do processo</td>
+<td style="text-align: left;">Conforme a implementação</td>
+<td style="text-align: left;">Definir e revisar o fluxo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Agente baseado em modelo</td>
+<td style="text-align: left;">Modelo, dentro dos limites configurados</td>
+<td style="text-align: left;">Contexto e resultados intermediários</td>
+<td style="text-align: left;">Conforme necessidade e acesso</td>
+<td style="text-align: left;">Definir objetivo, limites e revisar o resultado</td>
+</tr>
+</tbody>
+</table>
+<p>Esta tabela é uma síntese didática da distinção da <a href="https://www.anthropic.com/engineering/building-effective-agents">Fonte 1</a>. As categorias podem coexistir no mesmo produto: uma interface de chat pode iniciar um agente.</p>
+<!-- [ANATOMIA-AGENTE] -->
+<h2>4. Componentes de um agente</h2>
+<p>A documentação do Agents SDK descreve um agente como um modelo configurado com instruções, ferramentas e comportamentos opcionais de execução. <a href="https://openai.github.io/openai-agents-python/agents/">Fonte 2</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Componente</th>
+<th style="text-align: left;">Função</th>
+<th style="text-align: left;">Exemplo didático</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Modelo</td>
+<td style="text-align: left;">Interpretar o contexto e selecionar passos</td>
+<td style="text-align: left;">Decidir qual documento consultar</td>
+</tr>
+<tr>
+<td style="text-align: left;">Instruções</td>
+<td style="text-align: left;">Definir objetivo e limites</td>
+<td style="text-align: left;">Não inventar dados ausentes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ferramentas</td>
+<td style="text-align: left;">Permitir interação com recursos</td>
+<td style="text-align: left;">Ler arquivos e salvar o relatório</td>
+</tr>
+<tr>
+<td style="text-align: left;">Estado de execução</td>
+<td style="text-align: left;">Manter informações intermediárias</td>
+<td style="text-align: left;">Documentos já examinados</td>
+</tr>
+<tr>
+<td style="text-align: left;">Controle de execução</td>
+<td style="text-align: left;">Aplicar paradas e verificações</td>
+<td style="text-align: left;">Encerrar após salvar e conferir a entrega</td>
+</tr>
+</tbody>
+</table>
+<p>Memória permanente, acesso à internet e múltiplos agentes dependem do projeto; não devem ser presumidos. Uma skill pode fornecer um método reutilizável, mas não substitui todo o sistema de execução.</p>
+<!-- [CICLO-EXECUCAO] -->
+<h2>5. O ciclo de execução na prática</h2>
+<p>A <a href="https://www.anthropic.com/engineering/building-effective-agents">Fonte 1</a> destaca a importância do retorno do ambiente e de condições de parada.</p>
+<pre><code class="language-text">Receber objetivo e contexto
+          ↓
+Observar informações disponíveis
+          ↓
+Escolher e executar uma ação permitida
+          ↓
+Conferir o retorno da ferramenta
+          ↓
+Concluiu? → Sim: apresentar resultado e evidências
+    ↓ Não
+Continuar, solicitar informação ou parar conforme os limites
+</code></pre>
+<p>Planejar uma ação não comprova sua execução. Por exemplo, só afirmar que um arquivo foi salvo após verificar sua existência e seu conteúdo.</p>
+<!-- [GOVERNANCA] -->
+<h2>6. Autonomia com limites</h2>
+<p>A OpenAI Academy apresenta agentes de trabalho por gatilho, processo e ferramentas, com instruções e governança. O modelo interpreta contexto e toma decisões delimitadas. <a href="https://openai.com/academy/workspace-agents/">Fonte 3</a>.</p>
+<p>Para o exemplo deste relatório, propõe-se o seguinte contrato operacional:</p>
+<ul>
+<li><strong>Objetivo:</strong> produzir um documento introdutório com fontes identificadas.</li>
+<li><strong>Ações permitidas:</strong> consultar materiais e criar arquivos de saída.</li>
+<li><strong>Limites:</strong> preservar originais e declarar lacunas de informação.</li>
+<li><strong>Parada:</strong> encerrar quando a entrega estiver verificada ou quando faltar uma condição indispensável.</li>
+<li><strong>Revisão humana:</strong> avaliar adequação e autorizar eventual publicação.</li>
+</ul>
+<p>Esse contrato é uma proposta didática, sem proporção fixa de automação ou julgamento humano.</p>
+<!-- [EXEMPLO-APLICADO] -->
+<h2>7. Exemplo aplicado: relatório a partir de arquivos</h2>
+<p><strong>Pedido ilustrativo:</strong> “Leia os documentos desta pasta e prepare um relatório com as principais conclusões.”</p>
+<ol>
+<li>Inventariar os documentos e identificar os formatos disponíveis.</li>
+<li>Ler os materiais pertinentes ao objetivo.</li>
+<li>Registrar informações confirmadas e lacunas.</li>
+<li>Elaborar a análise, distinguindo evidência de interpretação.</li>
+<li>Salvar o relatório no formato solicitado.</li>
+<li>Conferir se o arquivo abre, se as fontes estão presentes e se a conclusão corresponde aos materiais.</li>
+</ol>
+<p><strong>Adaptação possível:</strong> se uma planilha estiver ausente, registrar a lacuna e limitar a análise. <strong>Critério de aceitação proposto:</strong> documento legível, fontes rastreáveis e nenhuma afirmação quantitativa sem origem. O exemplo é autoral e não representa resultado medido.</p>
+<!-- [LIMITES-E-FALHAS] -->
+<h2>8. Limitações e falhas a considerar</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Falha possível</th>
+<th style="text-align: left;">Consequência no exemplo</th>
+<th style="text-align: left;">Controle proposto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Interpretar um documento incorretamente</td>
+<td style="text-align: left;">Conclusão inadequada</td>
+<td style="text-align: left;">Conferir trechos que sustentam os achados</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ferramenta retornar erro</td>
+<td style="text-align: left;">Arquivo incompleto ou ausente</td>
+<td style="text-align: left;">Ler o retorno e verificar a saída</td>
+</tr>
+<tr>
+<td style="text-align: left;">Informação necessária não existir</td>
+<td style="text-align: left;">Análise sem base suficiente</td>
+<td style="text-align: left;">Declarar a lacuna</td>
+</tr>
+<tr>
+<td style="text-align: left;">Repetir tentativas sem progresso</td>
+<td style="text-align: left;">Consumo sem entrega</td>
+<td style="text-align: left;">Definir condições de parada</td>
+</tr>
+<tr>
+<td style="text-align: left;">Executar além do pedido</td>
+<td style="text-align: left;">Alterações indesejadas</td>
+<td style="text-align: left;">Delimitar permissões e revisão</td>
+</tr>
+</tbody>
+</table>
+<p>A tabela apresenta hipóteses de falha e controles para o exemplo, sem estimar frequência ou eficácia.</p>
+<!-- [TABELA-METRICAS] -->
+<h2>9. Como avaliar um agente</h2>
+<p><strong>Dados não fornecidos; impacto quantitativo não avaliado.</strong> Não há evidência neste relatório para afirmar economia de tempo, custo ou aumento de qualidade.</p>
+<p>Para um futuro teste do exemplo, propõem-se indicadores: proporção de entregas que atendem aos critérios, afirmações sem fonte, tempo por entrega aceita e correções exigidas pelo revisor. Registrar a amostra e aplicar os mesmos critérios ao processo de comparação. Esses indicadores são uma proposta de avaliação, não resultados obtidos.</p>
+<!-- [HOMOLOGACAO-4-CAMADAS] -->
+<h2>10. Conclusão e revisão</h2>
+<p>Um agente de IA conecta interpretação e ação em um processo orientado a objetivos. Para avaliá-lo, observar o que efetivamente fez, como verificou o resultado e em quais condições encerrou a tarefa.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Camada de revisão humana</th>
+<th style="text-align: left;">Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Decisão: utilidade e adequação ao público</td>
+<td style="text-align: left;">Pendente</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fatos: definições, fontes e exemplos</td>
+<td style="text-align: left;">Pendente</td>
+</tr>
+<tr>
+<td style="text-align: left;">Completude: cobertura do tema e lacunas</td>
+<td style="text-align: left;">Pendente</td>
+</tr>
+<tr>
+<td style="text-align: left;">Formato: identidade visual e legibilidade</td>
+<td style="text-align: left;">Pendente</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Escopo editorial:</strong> estrutura adaptada ao tema “agentes de IA”; não representa auditoria dos 12 elementos temáticos de Skills nem homologação institucional. Autor, professor, disciplina e protocolo não foram informados.</p>
+<h2>Fontes consultadas</h2>
+<ol>
+<li><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic — Building effective agents</a>. Definição arquitetural, retorno do ambiente e condições de parada. Publicado em 19/12/2024; utilizado para conceitos, não para versões atuais de ferramentas.</li>
+<li><a href="https://openai.github.io/openai-agents-python/agents/">OpenAI — Agents SDK: Agents</a>. Componentes e configuração de um agente.</li>
+<li><a href="https://openai.com/academy/workspace-agents/">OpenAI Academy — Workspace agents</a>. Gatilho, processo, ferramentas e governança.</li>
+</ol>
+<p>Consulta em 19/10/2026. Identidade visual baseada na especificação e no template locais da skill <code>relatorio-tecnico-infnet</code>. Exemplos, contrato operacional e proposta de avaliação são elaboração didática deste relatório.</p></article><footer class="report-footer">Documento educacional • Emissão: 19/10/2026 • Homologação humana pendente</footer></main></body></html>

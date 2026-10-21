@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relatórios Infnet"
+  short_description: "Relatórios Infnet com campos acadêmicos genéricos"
+  default_prompt: "Use $relatorio-tecnico-infnet para criar um relatório sobre o tema informado no padrão Infnet."

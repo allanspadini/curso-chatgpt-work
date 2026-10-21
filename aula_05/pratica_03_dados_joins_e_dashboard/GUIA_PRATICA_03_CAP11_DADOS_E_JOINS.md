@@ -10,6 +10,82 @@
 
 ---
 
+## 📤 Quais Saídas Exigir dos Alunos (O Que Cobrar da Turma)
+
+> **Instrução para o Professor:**  
+> Ao lançar os desafios de dados do Capítulo 11, não forneça o script nem o prompt pronto. O objetivo pedagógico é que o aluno aprenda a comandar o agente para limpar e validar fontes sem gerar alucinação nem corrupção de dados.  
+> **Você deve cobrar deles exclusivamente as seguintes SAÍDAS FINAIS:**
+
+### 🔹 Saída da Prática 3.1 (Slide 16 — Limpeza em Cópia e Data-Quality Note):
+Exija que o aluno apresente um documento (ou relatório analítico formatado) contendo **três saídas obrigatórias**:
+
+1. **A Declaração do Grão da Tabela (*Table Grain*):**
+   - Definição explícita de que o Grão Aparente da fonte é: `1 linha = 1 pedido fechado (transação única)`;
+   - Identificação de que a linha `TOTAL` no rodapé do CSV bruto **viola o grão transacional** e deve ser extraída do corpo de dados.
+
+2. **A Tabela de Vendas Limpa em Cópia Separada:**
+   - Com a duplicata exata de `row_id=3` removida;
+   - Sem a linha de `TOTAL` colada na tabela;
+   - Com o valor de `revenue` da cliente `Cascade` preservado estritamente como **`NULL / Blank`** (**`Blank ≠ Zero`**, proibido colocar $0,00);
+   - Espaços da chave normalizados (`"cust-102 "` ➔ `"CUST-102"`);
+   - A data `04/05/2026` apontada e sinalizada como ambígua (pode ser 4 de maio ou 5 de abril);
+   - O código de região `EMEA` mantido e sinalizado como não mapeado.
+
+3. **A *Data-Quality Note* Reconciliando o Paradoxo do TOTAL:**
+   - Demonstração matemática de que a soma das 5 linhas válidas (`$1.250,00 + $900,00 + $475,50 + $1.100,00 + $620,00`) totaliza exatamente os **`$4.345,50`** da linha `TOTAL` da fonte bruta;
+   - **O Ponto Crítico:** Explicação técnica de por que esse valor é um **TOTAL INCOMPLETO** (pois a 6ª conta única — Cascade — teve receita não informada / NULL) e jamais pode ser apresentado à diretoria sem ressalva.
+
+🔍 **Como o Professor Audita a Saída da Prática 3.1 (Checklist Rápido):**
+- [ ] O CSV bruto original foi mantido 100% intacto?
+- [ ] A receita da Cascade está como `NULL` (e não como zero)?
+- [ ] O paradoxo da linha TOTAL ($4.345,50 como soma incompleta) foi explicado com clareza?
+
+---
+
+### 🔹 Saída da Prática 3.2 (Slide 18 — Trial Join com CRM e Governança do Sites):
+Exija que o aluno apresente o relatório de validação cruzada contendo **duas saídas obrigatórias**:
+
+1. **O Relatório de Trial Join Reconciliado (Vendas ⋈ CRM):**
+   - **Diagnóstico da Chave Duplicada no CRM:** Demonstração de que `CUST-105 (AuroraTech)` aparece 2 vezes no CRM, o que causaria uma relação `1:2` e **inflaria artificialmente o faturamento em +$1.100,00** (a receita saltaria incorretamente de `$4.345,50` para `$5.445,50`);
+   - **Quantificação de Matched e Unmatched:**
+     • Contas *Matched* no CRM: `$3.725,50` (+ 1 conta com receita `NULL`);
+     • Conta *Unmatched* nas vendas: `CUST-999 (VanguardGhost)` representando **`$620,00` (14,3% da receita total)**, explicando que um `INNER JOIN` ingênuo apagaria 14% do faturamento da empresa;
+     • Conta do CRM sem vendas: `CUST-108`.
+
+2. **O Contrato de Governança da Scheduled Task (Dashboard no Sites — Rubrica 3.6):**
+   - Especificação em 4 tópicos: (a) Dono da rotina, (b) Gatilho de alerta material (>5% unmatched ou nova chave duplicada) vs. silêncio operacional semanal, (c) Portão de aprovação humana antes de alterar visibilidade do Site, e (d) Critério de transição de Work para Codex.
+
+🔍 **Como o Professor Audita a Saída da Prática 3.2 (Checklist Rápido):**
+- [ ] O aluno calculou a inflação de `+$1.100,00` pela duplicata do CRM?
+- [ ] O valor de `$620,00` (14,3%) do cliente sem cadastro no CRM foi destacado?
+- [ ] A tarefa agendada possui critérios claros de silêncio vs. alerta material?
+
+---
+
+## 🤖 O Que Passar Para a IA (Para o Professor Entender a Prática)
+
+Para você, professor, entender a mecânica da prática e orientar alunos que tenham dúvidas, estes são os prompts de referência utilizados nos bastidores:
+
+### Prompt de Referência — Prática 3.1 (Slide 16):
+```text
+Atue como analista de fluxos de dados confiáveis do ChatGPT Work seguindo o Estágio 1 do Capítulo 11 ("Profile and Clean"). Anexei o arquivo "exportacao_vendas_bruta_suja.csv".
+
+Sem alterar o arquivo bruto original, execute os 3 passos abaixo:
+1. Perfil da Fonte e Grão da Tabela (Table Grain): Informe a contagem bruta de linhas e colunas, o período coberto e o Grão Aparente da tabela (o que 1 linha representa), apontando qual linha viola esse grão.
+2. Limpeza Sistemática em Cópia Separada: Apresente a tabela limpa aplicando as 6 regras: remova duplicatas exatas mantendo row_id; separe o TOTAL; converta revenue para número mantendo vazios como NULL (Blank ≠ Zero!); normalize espaços ("cust-102 "); aponte datas ambíguas ("04/05/2026"); normalize aliases e mantenha "EMEA" sinalizado sem adivinhar.
+3. Data-Quality Note & Reconciliação: Mostre a soma das 5 contas com receita ($4,345.50) e explique por que, embora bata com a linha TOTAL, trata-se de um TOTAL INCOMPLETO.
+```
+
+### Prompt de Referência — Prática 3.2 (Slide 18):
+```text
+Continuando na mesma thread, anexei a segunda fonte: "cadastro_clientes_crm.csv". Antes de realizarmos o merge final com a nossa cópia limpa de vendas, execute o Protocolo de Validação de Chaves de Junção (Trial Join — Estágio 2 do Capítulo 11):
+1. Auditoria de Unicidade e Risco de Multiplicação: Verifique se a chave crm_account_id é única. Mostre o que aconteceria com a receita da cliente CUST-105 ($1,100.00) e com a receita total se fizéssemos um LEFT JOIN direto sem deduplicar o CRM antes (de $4,345.50 para quanto saltaria?).
+2. Relatório de Trial Join (Matched vs. Unmatched): Apresente o resumo informando contas/dólares Matched ($3,725.50 + 1 NULL), a conta Unmatched fora do CRM (CUST-999 VanguardGhost com $620.00 e 14,3%) e a conta do CRM sem vendas (CUST-108).
+3. Governança do Dashboard no Sites: Especifique o contrato da Scheduled Task semanal (Dono, Gatilho material vs. silêncio, Portão de aprovação antes de alterar visibilidade, e momento de migrar para o Codex).
+```
+
+---
+
 ## 🎯 1. Objetivo e Boas Práticas Trabalhadas
 
 No **Capítulo 11**, aprendemos que um gráfico bonito jamais prova que uma análise de dados é confiável. Sobrescrever a exportação original destrói a evidência bruta, converter células em branco para zero distorce médias, esquecer uma linha `TOTAL` no meio da tabela duplica somas, e fazer um `JOIN` sem testar unicidade multiplica linhas e infla receitas silenciosamente.

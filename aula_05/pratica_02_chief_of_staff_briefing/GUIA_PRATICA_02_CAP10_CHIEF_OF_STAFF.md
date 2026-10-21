@@ -10,6 +10,76 @@
 
 ---
 
+## 📤 Quais Saídas Exigir dos Alunos (O Que Cobrar da Turma)
+
+> **Instrução para o Professor:**  
+> Ao lançar os exercícios da Prática 2, não entregue o roteiro de comandos prontos. Os alunos precisam aprender a formular o briefing e o handoff de forma autônoma.  
+> **Você deve cobrar deles exclusivamente as seguintes SAÍDAS FINAIS:**
+
+### 🔹 Saída da Prática 2.1 (Slide 11 — Work Chief of Staff Matinal às 08h30):
+Exija que o aluno apresente o **Briefing Decisório Matinal nos 7 Blocos Canônicos por Ação**:
+1. **Top Priorities:** Desfechos obrigatórios de hoje ajustados à janela real de apenas **2h30 livres de foco matinal**;
+2. **Meaningful Changes:** Mudanças de escopo em documentos (corte do Estorno Internacional no doc Apollo v3) e itens fechados (`BUG-309`);
+3. **Upcoming Commitments & Colisões de Agenda:** Alerta explícito sobre o conflito de horário às **14h00** (Comitê Executivo Apollo vs. Demo externa);
+4. **Responses Required:** Mensagens que necessitam de julgamento humano fundamentado;
+5. **Blocked or Waiting:** Dependência crítica do firewall `FW-882` indicando o dono (`Roberto Mendes`);
+6. **Can Wait:** Itens informativos ou de baixa urgência (como o artigo compartilhado pelo Diretor/VP sênior);
+7. **Prepared Next Steps:** Rascunhos de resposta encenados (*staged*), mas **não enviados**;
++ **Bloco de Limite de Confiança:** Declaração explícita de indisponibilidade da fonte `Tracker-Auditoria-SecOps` (`HTTP 503`), sem inventar dados.
+
+*(Regra de ouro: A saída **não pode** conter divisões por aplicativo como "Resumo do Slack" ou "Resumo do E-mail")*.
+
+🔍 **Como o Professor Audita a Saída da Prática 2.1 (Checklist Rápido):**
+- [ ] O briefing está estruturado por desfecho e ação (e não por app de origem)?
+- [ ] O artigo da HBR do Diretor Geral (VP) foi alocado em `Can Wait` (aplicando a regra `Urgente ≠ Importante`)?
+- [ ] A colisão de horário das 14h00 foi apontada?
+- [ ] A falha `HTTP 503` do conector SecOps foi declarada com transparência como limitação de confiança?
+
+---
+
+### 🔹 Saída da Prática 2.2 (Slide 13 — Limiar de Mudança Relevante e Handoff Seguro):
+Exija que o aluno apresente **duas saídas complementares**:
+
+1. **Auditoria do Heartbeat das 10h00 + Delta Brief:**
+   - Classificação dos 4 eventos: `H-01` e `H-02` como **Suprimidos em Silêncio Operacional**; `H-03` (exigência de assinatura mTLS até 11h30) e `H-04` (volta do conector SecOps revelando incidente `SEC-901`) como **Gatilhos de Interrupção Imediata**;
+   - Emissão de um **Delta Brief conciso** reportando apenas o que mudou (sem repetir os itens inalterados das 08h30).
+
+2. **Pacote de Handoff Operacional Seguro para Roberto (DevSecOps) e Camila (QA):**
+   - Contexto técnico focado na resolução de `SEC-901` e mTLS do Projeto Apollo;
+   - **Lista Explícita de Dados Privados Removidos:** Declaração formal no rodapé confirmando que a nota pessoal de consulta com o pediatra do filho às 12h30 e a negociação do financiamento imobiliário foram **100% expurgadas** por privacidade.
+
+🔍 **Como o Professor Audita a Saída da Prática 2.2 (Checklist Rápido):**
+- [ ] Os eventos sem impacto material (`H-01` e `H-02`) foram mantidos em silêncio sem gerar interrupção inútil?
+- [ ] O pacote de handoff foi entregue sem nenhum dado privado ou confidencial alheio ao projeto?
+
+---
+
+## 🤖 O Que Passar Para a IA (Para o Professor Entender a Prática)
+
+Para você, professor, entender a mecânica da prática e orientar alunos que tenham dúvidas, estes são os prompts de referência utilizados nos bastidores:
+
+### Prompt de Referência — Prática 2.1 (Slide 11):
+```text
+Atue como meu Work Chief of Staff seguindo rigorosamente a metodologia do Capítulo 10. Anexei o arquivo "sinais_equipe_manha_21out.md" contendo os sinais das 08h30 vindos de Mensagens (Slack), E-mail, Calendário, Documentos e Trackers. Hoje tenho apenas 2h30 livres de foco pela manhã.
+
+Monte o meu Briefing Decisório Matinal obedecendo a estas 4 regras obrigatórias:
+1. Organização por Ação nos 7 Blocos Canônicos (Proibido Agrupar por Aplicativo): Cruze as fontes por iniciativa e estruture em (1) Top Priorities, (2) Meaningful Changes, (3) Upcoming Commitments & Colisões, (4) Responses Required, (5) Blocked or Waiting, (6) Can Wait e (7) Prepared Next Steps (staged, não enviados).
+2. Regra "Urgente ≠ Importante": Mensagem informativa (FYI) de líder sênior vai para "6. Can Wait". Priorize bloqueios de equipe e prazos do dia.
+3. Higiene de Fim de Thread: Verifique a última mensagem de EM-402 e o BUG-309 para não listar itens resolvidos como abertos.
+4. Transparência de Fontes Indisponíveis: Reporte a falha HTTP 503 do conector SecOps como limite de confiança, sem adivinhar dados.
+```
+
+### Prompt de Referência — Prática 2.2 (Slide 13):
+```text
+Continuando na mesma thread (usando o briefing das 08h30 como baseline), anexei o arquivo "atualizacao_heartbeat_10h00.md" com os 4 eventos capturados às 10h00 (H-01 a H-04).
+
+Execute as 2 tarefas abaixo:
+1. Filtro do Heartbeat pelo Limiar de Mudança Relevante: Separe quais eventos devem ser suprimidos em silêncio e quais cruzam o limiar de interrupção imediata, emitindo apenas o Delta Brief das 10h00.
+2. Pacote de Delegação e Handoff Seguro: Gere um pacote de Handoff para Roberto Mendes (DevSecOps) e Camila (QA) assumirem o SEC-901 e a homologação mTLS, com escopo estritamente técnico do Projeto Apollo, confirmando no rodapé quais informações pessoais foram deliberadamente removidas por privacidade.
+```
+
+---
+
 ## 🎯 1. Objetivo e Boas Práticas Trabalhadas
 
 No **Capítulo 10**, aprendemos que o trabalho do conhecimento é fragmentado entre mensagens, e-mails, calendário, documentos e trackers. Um mau assistente gera resumos longos divididos por aplicativo (*"Resumo do Slack"*, *"Resumo do E-mail"*), forçando o humano a cruzar tudo de cabeça, ou dispara alertas a cada hora repetindo a mesma lista de tarefas.

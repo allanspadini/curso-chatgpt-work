@@ -8,6 +8,75 @@
 
 ---
 
+## 📤 Quais Saídas Exigir dos Alunos (O Que Cobrar da Turma)
+
+> **Instrução para o Professor:**  
+> Não forneça aos alunos os prompts prontos nem o passo a passo de como interagir com o agente. Os alunos precisam desenvolver a competência de arquitetar a instrução por conta própria.  
+> **Você deve cobrar deles exclusivamente as seguintes SAÍDAS FINAIS:**
+
+### 🔹 Saída da Prática 1.1 (Slide 06 — Edição Segura e Decision Brief):
+Exija que o aluno apresente um documento (ou resposta formatada em Markdown) contendo **duas saídas obrigatórias**:
+
+1. **A Política de Reembolso Revisada:**
+   - **Seção 1 ("Objetivo e Escopo"):** Redigida em tom executivo, claro e conciso (eliminando a linguagem informal e prolixa do texto original);
+   - **Seção 2 ("Regras e Tetos Normativos" — Cláusulas 2.1 a 2.5):** Rigorosamente **idêntica ao texto original** (sem alterar valores como `R$ 145,00` e `R$ 520,00`, prazos como `10 dias úteis`, alçadas de `15%`, nem a numeração das cláusulas).
+
+2. **O Decision Brief Executivo em 6 Seções Canônicas:**
+   - Estruturado em: `Situação ➔ Evidência ➔ Opções ➔ Riscos ➔ Recomendação ➔ Próximos Passos`;
+   - Com **rótulos epistemológicos explícitos** em cada afirmação: `[Fato Citado da Fonte]`, `[Achado Derivado / Cálculo]` e `[Recomendação]`.
+
+🔍 **Como o Professor Audita a Saída da Prática 1.1 (Checklist Rápido):**
+- [ ] As Cláusulas 2.1 a 2.5 continuam 100% inalteradas na política?
+- [ ] Na seção de *Evidência*, há o cálculo formal demonstrando que o piloto reduziu o tempo de 126 horas para 24,5 horas, gerando **economia de 101,5 horas (-80,5%)**, com o rótulo `[Achado Derivado]`?
+- [ ] Na *Recomendação*, a limitação dos **11% de notas em municípios sem NFS-e padrão** está explicitamente sinalizada para impedir promessas falsas de 100% de automação?
+
+---
+
+### 🔹 Saída da Prática 1.2 (Slide 08 — Matriz de Fornecedores sem Falsa Precisão):
+Exija que o aluno apresente um modelo comparativo de tomada de decisão contendo **duas saídas obrigatórias**:
+
+1. **A Tabela Comparativa Estruturada em 4 Camadas:**
+   - *Camada 1: Dados Brutos* (resumo dos 4 fornecedores);
+   - *Camada 2: Premissas e Pesos* (definindo pesos distintos para cada cenário);
+   - *Camada 3: Cálculos Intermediários*;
+   - *Camada 4: Ranking Final*.
+
+2. **O Resultado nos 2 Cenários de Pesos + Parecer de Contratação:**
+   - **Cenário 1 (Equilíbrio Operacional Imediato):** Comprovação de que vence o fornecedor `VEND-01 (DocuMind OCR)` (melhor balanço entre custo de $1.850, velocidade de 1,8s e precisão de 97,4%);
+   - **Cenário 2 (Rigor Máximo de Compliance LGPD):** Comprovação de que lidera o fornecedor `VEND-03 (GovShield OCR Pro)` (score LGPD 100 e 98,2% acurácia);
+   - **Parecer de Risco do `VEND-03`:** Ressalva mandatória de que o `VEND-03` só pode ser contratado **após** a realização de prova de conceito que homologue sua latência média no Brasil.
+
+🔍 **Como o Professor Audita a Saída da Prática 1.2 (Checklist Rápido):**
+- [ ] **A regra `Blank ≠ Zero` foi respeitada?** A latência do `VEND-03` está exibida como `NULL / Não Auditado`? *(Se o agente do aluno preencheu `0,0 segundos`, a IA deu nota máxima de velocidade indevidamente; se colocou nota zero, puniu sem teste — ambas as respostas estão erradas!)*.
+- [ ] O modelo demonstra claramente a alteração no ranking entre o Cenário 1 e o Cenário 2?
+
+---
+
+## 🤖 O Que Passar Para a IA (Para o Professor Entender a Prática)
+
+Para você, professor, entender a mecânica da prática e orientar alunos que tenham dúvidas, estes são os prompts de referência utilizados nos bastidores:
+
+### Prompt de Referência — Prática 1.1 (Slide 06):
+```text
+Anexei o arquivo "politica_corporativa_reembolso_v1.md". Preciso preparar uma versão revisada desta política e um Decision Brief executivo para o CFO e o Comitê de Compliance avaliarem os resultados do piloto de automação no Q3/2026.
+
+Execute esta tarefa obedecendo rigorosamente às 3 regras de engenharia documental do Capítulo 9:
+1. Edição Segura por Camada (Camada Imutável): Reescreva a Seção 1 ("Objetivo e Escopo") em tom executivo claro. Mantenha a Seção 2 ("Regras e Tetos Normativos" — Cláusulas 2.1 a 2.5) 100% IMUTÁVEL (valores, prazos, alçadas e numeração intocados).
+2. Arquitetura de Decision Brief com Distinção Epistemológica: Com base na Seção 3, monte o Decision Brief nas 6 seções canônicas (Situação ➔ Evidência ➔ Opções ➔ Riscos ➔ Recomendação ➔ Próximos Passos), rotulando cada ponto como [Fato Citado da Fonte], [Achado Derivado / Cálculo] (reconciliando matematicamente as horas economizadas) ou [Recomendação].
+3. Transparência de Limitações: Destaque na Recomendação a falha observada nos 11% de recibos em municípios sem NFS-e padrão, justificando a retenção de triagem humana.
+```
+
+### Prompt de Referência — Prática 1.2 (Slide 08):
+```text
+Anexei o arquivo "matriz_fornecedores_incompleta.csv" com os dados de 4 fornecedores de OCR (VEND-01 a VEND-04) candidatos a automatizar nossa triagem de notas fiscais no Q4/2026.
+
+Construa um modelo comparativo inspecionável seguindo rigorosamente as boas práticas de planilhas do Capítulo 9:
+1. Tratamento de Dados Ausentes (Regra Blank ≠ Zero): Observe que o VEND-03 está com "latencia_media_seg" em branco. Explique o erro de converter vazio em zero e preserve o valor como NULL / Não Auditado.
+2. Combate à Falsa Precisão (Análise de Sensibilidade em 2 Cenários): Separe em 4 blocos (Dados Brutos, Premissas/Pesos, Cálculos e Ranking). Compare o ranking sob o Cenário 1 (Equilíbrio Operacional Imediato) e Cenário 2 (Rigor Máximo de Compliance e Precisão), apontando o vencedor de cada um e a condição para contratar o VEND-03.
+```
+
+---
+
 ## 🎯 1. Objetivo e Boas Práticas Trabalhadas
 
 No **Capítulo 9**, aprendemos que pedir ao ChatGPT Work apenas *"faça um documento"*, *"crie uma planilha"* ou *"gere uma apresentação"* produz arquivos tecnicamente válidos na superfície, mas frágeis na prática corporativa.
